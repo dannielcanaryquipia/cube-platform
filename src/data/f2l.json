@@ -1,0 +1,694 @@
+{
+ "f2l": [
+  {
+   "id": "f2l-1",
+   "name": "F2L 1",
+   "group": "White sticker on the side",
+   "alg": "F' U' F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-2",
+   "name": "F2L 2",
+   "group": "White sticker on the side",
+   "alg": "R U R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-3",
+   "name": "F2L 3",
+   "group": "White sticker on the side",
+   "alg": "U R U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-4",
+   "name": "F2L 4",
+   "group": "White sticker on the side",
+   "alg": "U' F' U F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-5",
+   "name": "F2L 5",
+   "group": "White sticker on the side",
+   "alg": "R' U2 R2 U R2 U R",
+   "slot": "FR",
+   "generated": true
+  },
+  {
+   "id": "f2l-6",
+   "name": "F2L 6",
+   "group": "White sticker on the side",
+   "alg": "R U' R' U2 F' U' F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-7",
+   "name": "F2L 7",
+   "group": "White sticker on the side",
+   "alg": "F' U F U2 R U R'",
+   "slot": "FR",
+   "generated": true
+  },
+  {
+   "id": "f2l-8",
+   "name": "F2L 8",
+   "group": "White sticker on the side",
+   "alg": "U' R U R' U2 R U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-9",
+   "name": "F2L 9",
+   "group": "White sticker on the side",
+   "alg": "U F' U' F U2 F' U F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-10",
+   "name": "F2L 10",
+   "group": "White sticker on the side",
+   "alg": "U' R U2 R' U2 R U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-11",
+   "name": "F2L 11",
+   "group": "White sticker on the side",
+   "alg": "U F' U2 F U2 F' U F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-12",
+   "name": "F2L 12",
+   "group": "White sticker on the side",
+   "alg": "U' R U' R' U F' U' F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-13",
+   "name": "F2L 13",
+   "group": "White sticker on the side",
+   "alg": "U' R U R' U R U R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-14",
+   "name": "F2L 14",
+   "group": "White sticker on the side",
+   "alg": "U' R U2 R' U F' U' F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-15",
+   "name": "F2L 15",
+   "group": "White sticker on the side",
+   "alg": "U F' U F U' F' U' F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-16",
+   "name": "F2L 16",
+   "group": "White sticker on the side",
+   "alg": "U' R U' R' U R U R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-17",
+   "name": "F2L 17",
+   "group": "White sticker on top",
+   "alg": "R U2 R2 F R F'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-18",
+   "name": "F2L 18",
+   "group": "White sticker on top",
+   "alg": "F' U2 F2 R' F' R",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-19",
+   "name": "F2L 19",
+   "group": "White sticker on top",
+   "alg": "R U R' F' U' F",
+   "slot": "FR",
+   "generated": true
+  },
+  {
+   "id": "f2l-20",
+   "name": "F2L 20",
+   "group": "White sticker on top",
+   "alg": "R U2 R' U' R U R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-21",
+   "name": "F2L 21",
+   "group": "White sticker on top",
+   "alg": "F' U2 F U F' U' F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-22",
+   "name": "F2L 22",
+   "group": "White sticker on top",
+   "alg": "F2 U2 F U F' U F2",
+   "slot": "FR",
+   "generated": true
+  },
+  {
+   "id": "f2l-23",
+   "name": "F2L 23",
+   "group": "White sticker on top",
+   "alg": "U2 R U R' U R U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-24",
+   "name": "F2L 24",
+   "group": "White sticker on top",
+   "alg": "U2 R2 U2 R' U' R U' R2",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-25",
+   "name": "F2L 25",
+   "group": "Corner in slot",
+   "alg": "R U2 R' F' U2 F",
+   "slot": "FR",
+   "generated": true
+  },
+  {
+   "id": "f2l-26",
+   "name": "F2L 26",
+   "group": "Corner in slot",
+   "alg": "R U' R' F' U' F",
+   "slot": "FR",
+   "generated": true
+  },
+  {
+   "id": "f2l-27",
+   "name": "F2L 27",
+   "group": "Corner in slot",
+   "alg": "R U' R' U R U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-28",
+   "name": "F2L 28",
+   "group": "Corner in slot",
+   "alg": "R U R' U' R U R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-29",
+   "name": "F2L 29",
+   "group": "Corner in slot",
+   "alg": "U R U' R' U' F' U F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-30",
+   "name": "F2L 30",
+   "group": "Corner in slot",
+   "alg": "U' F' U F U R U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-31",
+   "name": "F2L 31",
+   "group": "Edge in slot",
+   "alg": "F' U F R U2 R'",
+   "slot": "FR",
+   "generated": true
+  },
+  {
+   "id": "f2l-32",
+   "name": "F2L 32",
+   "group": "Edge in slot",
+   "alg": "R2 U2 R2 U' R2 U' R2",
+   "slot": "FR",
+   "generated": true
+  },
+  {
+   "id": "f2l-33",
+   "name": "F2L 33",
+   "group": "Edge in slot",
+   "alg": "U' R U' R' U2 R U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-34",
+   "name": "F2L 34",
+   "group": "Edge in slot",
+   "alg": "U R U R' U2 R U R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-35",
+   "name": "F2L 35",
+   "group": "Edge in slot",
+   "alg": "U' R U R' U F' U' F",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-36",
+   "name": "F2L 36",
+   "group": "Edge in slot",
+   "alg": "U F' U' F U' R U R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-37",
+   "name": "F2L 37",
+   "group": "Both in slot",
+   "alg": "R2 U2 F R2 F' U2 R' U R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-38",
+   "name": "F2L 38",
+   "group": "Both in slot",
+   "alg": "R F U R U' R' F' U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-39",
+   "name": "F2L 39",
+   "group": "Both in slot",
+   "alg": "R U F R U R' U' F' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-40",
+   "name": "F2L 40",
+   "group": "Both in slot",
+   "alg": "R U' R' U' R U R' U2 R U' R'",
+   "slot": "FR",
+   "generated": false
+  },
+  {
+   "id": "f2l-41",
+   "name": "F2L 41",
+   "group": "Both in slot",
+   "alg": "R U' R' U R U2 R' U R U' R'",
+   "slot": "FR",
+   "generated": false
+  }
+ ],
+ "advanced": [
+  {
+   "id": "af2l-fl-2",
+   "name": "F2L 2 · FL",
+   "group": "Front-left slot",
+   "alg": "L' U' L",
+   "slot": "FL",
+   "basedOn": "f2l-2"
+  },
+  {
+   "id": "af2l-fl-3",
+   "name": "F2L 3 · FL",
+   "group": "Front-left slot",
+   "alg": "U' L' U L",
+   "slot": "FL",
+   "basedOn": "f2l-3"
+  },
+  {
+   "id": "af2l-fl-5",
+   "name": "F2L 5 · FL",
+   "group": "Front-left slot",
+   "alg": "L U2 L2 U' L2 U' L'",
+   "slot": "FL",
+   "basedOn": "f2l-5"
+  },
+  {
+   "id": "af2l-fl-8",
+   "name": "F2L 8 · FL",
+   "group": "Front-left slot",
+   "alg": "U L' U' L U2 L' U L",
+   "slot": "FL",
+   "basedOn": "f2l-8"
+  },
+  {
+   "id": "af2l-fl-10",
+   "name": "F2L 10 · FL",
+   "group": "Front-left slot",
+   "alg": "U L' U2 L U2 L' U L",
+   "slot": "FL",
+   "basedOn": "f2l-10"
+  },
+  {
+   "id": "af2l-fl-13",
+   "name": "F2L 13 · FL",
+   "group": "Front-left slot",
+   "alg": "U L' U' L U' L' U' L",
+   "slot": "FL",
+   "basedOn": "f2l-13"
+  },
+  {
+   "id": "af2l-fl-16",
+   "name": "F2L 16 · FL",
+   "group": "Front-left slot",
+   "alg": "U L' U L U' L' U' L",
+   "slot": "FL",
+   "basedOn": "f2l-16"
+  },
+  {
+   "id": "af2l-fl-20",
+   "name": "F2L 20 · FL",
+   "group": "Front-left slot",
+   "alg": "L' U2 L U L' U' L",
+   "slot": "FL",
+   "basedOn": "f2l-20"
+  },
+  {
+   "id": "af2l-fl-23",
+   "name": "F2L 23 · FL",
+   "group": "Front-left slot",
+   "alg": "U2 L' U' L U' L' U L",
+   "slot": "FL",
+   "basedOn": "f2l-23"
+  },
+  {
+   "id": "af2l-fl-24",
+   "name": "F2L 24 · FL",
+   "group": "Front-left slot",
+   "alg": "U2 L2 U2 L U L' U L2",
+   "slot": "FL",
+   "basedOn": "f2l-24"
+  },
+  {
+   "id": "af2l-fl-27",
+   "name": "F2L 27 · FL",
+   "group": "Front-left slot",
+   "alg": "L' U L U' L' U L",
+   "slot": "FL",
+   "basedOn": "f2l-27"
+  },
+  {
+   "id": "af2l-fl-28",
+   "name": "F2L 28 · FL",
+   "group": "Front-left slot",
+   "alg": "L' U' L U L' U' L",
+   "slot": "FL",
+   "basedOn": "f2l-28"
+  },
+  {
+   "id": "af2l-fl-32",
+   "name": "F2L 32 · FL",
+   "group": "Front-left slot",
+   "alg": "L2 U2 L2 U L2 U L2",
+   "slot": "FL",
+   "basedOn": "f2l-32"
+  },
+  {
+   "id": "af2l-fl-33",
+   "name": "F2L 33 · FL",
+   "group": "Front-left slot",
+   "alg": "U L' U L U2 L' U L",
+   "slot": "FL",
+   "basedOn": "f2l-33"
+  },
+  {
+   "id": "af2l-fl-34",
+   "name": "F2L 34 · FL",
+   "group": "Front-left slot",
+   "alg": "U' L' U' L U2 L' U' L",
+   "slot": "FL",
+   "basedOn": "f2l-34"
+  },
+  {
+   "id": "af2l-br-2",
+   "name": "F2L 2 · BR",
+   "group": "Back-right slot",
+   "alg": "R' U' R",
+   "slot": "BR",
+   "basedOn": "f2l-2"
+  },
+  {
+   "id": "af2l-br-3",
+   "name": "F2L 3 · BR",
+   "group": "Back-right slot",
+   "alg": "U' R' U R",
+   "slot": "BR",
+   "basedOn": "f2l-3"
+  },
+  {
+   "id": "af2l-br-5",
+   "name": "F2L 5 · BR",
+   "group": "Back-right slot",
+   "alg": "R U2 R2 U' R2 U' R'",
+   "slot": "BR",
+   "basedOn": "f2l-5"
+  },
+  {
+   "id": "af2l-br-8",
+   "name": "F2L 8 · BR",
+   "group": "Back-right slot",
+   "alg": "U R' U' R U2 R' U R",
+   "slot": "BR",
+   "basedOn": "f2l-8"
+  },
+  {
+   "id": "af2l-br-10",
+   "name": "F2L 10 · BR",
+   "group": "Back-right slot",
+   "alg": "U R' U2 R U2 R' U R",
+   "slot": "BR",
+   "basedOn": "f2l-10"
+  },
+  {
+   "id": "af2l-br-13",
+   "name": "F2L 13 · BR",
+   "group": "Back-right slot",
+   "alg": "U R' U' R U' R' U' R",
+   "slot": "BR",
+   "basedOn": "f2l-13"
+  },
+  {
+   "id": "af2l-br-16",
+   "name": "F2L 16 · BR",
+   "group": "Back-right slot",
+   "alg": "U R' U R U' R' U' R",
+   "slot": "BR",
+   "basedOn": "f2l-16"
+  },
+  {
+   "id": "af2l-br-20",
+   "name": "F2L 20 · BR",
+   "group": "Back-right slot",
+   "alg": "R' U2 R U R' U' R",
+   "slot": "BR",
+   "basedOn": "f2l-20"
+  },
+  {
+   "id": "af2l-br-23",
+   "name": "F2L 23 · BR",
+   "group": "Back-right slot",
+   "alg": "U2 R' U' R U' R' U R",
+   "slot": "BR",
+   "basedOn": "f2l-23"
+  },
+  {
+   "id": "af2l-br-24",
+   "name": "F2L 24 · BR",
+   "group": "Back-right slot",
+   "alg": "U2 R2 U2 R U R' U R2",
+   "slot": "BR",
+   "basedOn": "f2l-24"
+  },
+  {
+   "id": "af2l-br-27",
+   "name": "F2L 27 · BR",
+   "group": "Back-right slot",
+   "alg": "R' U R U' R' U R",
+   "slot": "BR",
+   "basedOn": "f2l-27"
+  },
+  {
+   "id": "af2l-br-28",
+   "name": "F2L 28 · BR",
+   "group": "Back-right slot",
+   "alg": "R' U' R U R' U' R",
+   "slot": "BR",
+   "basedOn": "f2l-28"
+  },
+  {
+   "id": "af2l-br-32",
+   "name": "F2L 32 · BR",
+   "group": "Back-right slot",
+   "alg": "R2 U2 R2 U R2 U R2",
+   "slot": "BR",
+   "basedOn": "f2l-32"
+  },
+  {
+   "id": "af2l-br-33",
+   "name": "F2L 33 · BR",
+   "group": "Back-right slot",
+   "alg": "U R' U R U2 R' U R",
+   "slot": "BR",
+   "basedOn": "f2l-33"
+  },
+  {
+   "id": "af2l-br-34",
+   "name": "F2L 34 · BR",
+   "group": "Back-right slot",
+   "alg": "U' R' U' R U2 R' U' R",
+   "slot": "BR",
+   "basedOn": "f2l-34"
+  },
+  {
+   "id": "af2l-bl-2",
+   "name": "F2L 2 · BL",
+   "group": "Back-left slot",
+   "alg": "L U L'",
+   "slot": "BL",
+   "basedOn": "f2l-2"
+  },
+  {
+   "id": "af2l-bl-3",
+   "name": "F2L 3 · BL",
+   "group": "Back-left slot",
+   "alg": "U L U' L'",
+   "slot": "BL",
+   "basedOn": "f2l-3"
+  },
+  {
+   "id": "af2l-bl-5",
+   "name": "F2L 5 · BL",
+   "group": "Back-left slot",
+   "alg": "L' U2 L2 U L2 U L",
+   "slot": "BL",
+   "basedOn": "f2l-5"
+  },
+  {
+   "id": "af2l-bl-8",
+   "name": "F2L 8 · BL",
+   "group": "Back-left slot",
+   "alg": "U' L U L' U2 L U' L'",
+   "slot": "BL",
+   "basedOn": "f2l-8"
+  },
+  {
+   "id": "af2l-bl-10",
+   "name": "F2L 10 · BL",
+   "group": "Back-left slot",
+   "alg": "U' L U2 L' U2 L U' L'",
+   "slot": "BL",
+   "basedOn": "f2l-10"
+  },
+  {
+   "id": "af2l-bl-13",
+   "name": "F2L 13 · BL",
+   "group": "Back-left slot",
+   "alg": "U' L U L' U L U L'",
+   "slot": "BL",
+   "basedOn": "f2l-13"
+  },
+  {
+   "id": "af2l-bl-16",
+   "name": "F2L 16 · BL",
+   "group": "Back-left slot",
+   "alg": "U' L U' L' U L U L'",
+   "slot": "BL",
+   "basedOn": "f2l-16"
+  },
+  {
+   "id": "af2l-bl-20",
+   "name": "F2L 20 · BL",
+   "group": "Back-left slot",
+   "alg": "L U2 L' U' L U L'",
+   "slot": "BL",
+   "basedOn": "f2l-20"
+  },
+  {
+   "id": "af2l-bl-23",
+   "name": "F2L 23 · BL",
+   "group": "Back-left slot",
+   "alg": "U2 L U L' U L U' L'",
+   "slot": "BL",
+   "basedOn": "f2l-23"
+  },
+  {
+   "id": "af2l-bl-24",
+   "name": "F2L 24 · BL",
+   "group": "Back-left slot",
+   "alg": "U2 L2 U2 L' U' L U' L2",
+   "slot": "BL",
+   "basedOn": "f2l-24"
+  },
+  {
+   "id": "af2l-bl-27",
+   "name": "F2L 27 · BL",
+   "group": "Back-left slot",
+   "alg": "L U' L' U L U' L'",
+   "slot": "BL",
+   "basedOn": "f2l-27"
+  },
+  {
+   "id": "af2l-bl-28",
+   "name": "F2L 28 · BL",
+   "group": "Back-left slot",
+   "alg": "L U L' U' L U L'",
+   "slot": "BL",
+   "basedOn": "f2l-28"
+  },
+  {
+   "id": "af2l-bl-32",
+   "name": "F2L 32 · BL",
+   "group": "Back-left slot",
+   "alg": "L2 U2 L2 U' L2 U' L2",
+   "slot": "BL",
+   "basedOn": "f2l-32"
+  },
+  {
+   "id": "af2l-bl-33",
+   "name": "F2L 33 · BL",
+   "group": "Back-left slot",
+   "alg": "U' L U' L' U2 L U' L'",
+   "slot": "BL",
+   "basedOn": "f2l-33"
+  },
+  {
+   "id": "af2l-bl-34",
+   "name": "F2L 34 · BL",
+   "group": "Back-left slot",
+   "alg": "U L U L' U2 L U L'",
+   "slot": "BL",
+   "basedOn": "f2l-34"
+  }
+ ]
+}
