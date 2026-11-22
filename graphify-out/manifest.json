@@ -1,0 +1,187 @@
+{
+  ".claude/settings.local.json": {
+    "mtime": 1795383378.722291,
+    "ast_hash": "68bc293f69af0432a64297516500f607",
+    "semantic_hash": ""
+  },
+  ".oxlintrc.json": {
+    "mtime": 1795352891.6058702,
+    "ast_hash": "5e6e3cea3e89137071c142dd7835b0ef",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1795362691.5568488,
+    "ast_hash": "02ec868da9c4591aa0b75947844fdd07",
+    "semantic_hash": ""
+  },
+  "scripts/gen-f2l.mjs": {
+    "mtime": 1795362121.0663025,
+    "ast_hash": "8766c19289957165b6c2b6d24bb78f4f",
+    "semantic_hash": ""
+  },
+  "scripts/verify.mjs": {
+    "mtime": 1795359018.7669258,
+    "ast_hash": "c11f4b6235a5426b282856545c42caaa",
+    "semantic_hash": ""
+  },
+  "src/App.jsx": {
+    "mtime": 1795362745.6767232,
+    "ast_hash": "d84bc50f4e33a90b4a9f33c1ce2e37c6",
+    "semantic_hash": ""
+  },
+  "src/components/CaseCard.jsx": {
+    "mtime": 1795386418.3088882,
+    "ast_hash": "585841decb4ec9b2667c5b393d22cb04",
+    "semantic_hash": ""
+  },
+  "src/components/CaseGrid.jsx": {
+    "mtime": 1795352891.6656487,
+    "ast_hash": "d471ec620acb92e1b05a0934c7d7adf9",
+    "semantic_hash": ""
+  },
+  "src/components/CaseImage.jsx": {
+    "mtime": 1795356488.026191,
+    "ast_hash": "4a7a251427a78da324815100eef37615",
+    "semantic_hash": ""
+  },
+  "src/components/CubePlayer.jsx": {
+    "mtime": 1795362765.6288092,
+    "ast_hash": "9a0d39e56dc27ab36638dc3677de6214",
+    "semantic_hash": ""
+  },
+  "src/data/f2l.json": {
+    "mtime": 1795362145.313345,
+    "ast_hash": "bdb9cd86af709d1dc73f742507053507",
+    "semantic_hash": ""
+  },
+  "src/data/ll.js": {
+    "mtime": 1795358989.0193093,
+    "ast_hash": "7de84368be5e10ebe007cb12f5fd1720",
+    "semantic_hash": ""
+  },
+  "src/data/notation.js": {
+    "mtime": 1795354202.88732,
+    "ast_hash": "7decd8dcbe8202d7184778cfe57f7edc",
+    "semantic_hash": ""
+  },
+  "src/data/sets.js": {
+    "mtime": 1795362164.8829086,
+    "ast_hash": "6ece36c7cacf7b268c73dbc1c5c956ff",
+    "semantic_hash": ""
+  },
+  "src/lib/cube.js": {
+    "mtime": 1795354692.996846,
+    "ast_hash": "dae2b9c1e61b434355af73b96b71b42a",
+    "semantic_hash": ""
+  },
+  "src/lib/progress.js": {
+    "mtime": 1795352891.748408,
+    "ast_hash": "966355c09c4e2398c2bd02dccd666216",
+    "semantic_hash": ""
+  },
+  "src/lib/search.js": {
+    "mtime": 1795352891.7421715,
+    "ast_hash": "5e8168651d483ac49b9460b366d6a725",
+    "semantic_hash": ""
+  },
+  "src/main.jsx": {
+    "mtime": 1795352891.6461868,
+    "ast_hash": "e13723e2574429d9a6d849727e3ff695",
+    "semantic_hash": ""
+  },
+  "src/pages/AlgSet.jsx": {
+    "mtime": 1795359247.3132033,
+    "ast_hash": "3a322b8ed4081d99da22ebdc4c1761c3",
+    "semantic_hash": ""
+  },
+  "src/pages/CasePage.jsx": {
+    "mtime": 1795382499.8806238,
+    "ast_hash": "f7f45234dbbff4525bed9670a0b02c8b",
+    "semantic_hash": ""
+  },
+  "src/pages/Home.jsx": {
+    "mtime": 1795362878.5330412,
+    "ast_hash": "39e130558500f0d5e81f790622379a88",
+    "semantic_hash": ""
+  },
+  "src/pages/Notation.jsx": {
+    "mtime": 1795382434.025615,
+    "ast_hash": "66130a1c42483b55cfe590abfe3429c5",
+    "semantic_hash": ""
+  },
+  "src/pages/Search.jsx": {
+    "mtime": 1795352891.7879648,
+    "ast_hash": "9c914d399a23f798beedcafeab1820a0",
+    "semantic_hash": ""
+  },
+  "vite.config.js": {
+    "mtime": 1795352891.508818,
+    "ast_hash": "2ed677305a3117041dbb7538b4f18b75",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1795382872.3309846,
+    "ast_hash": "e17ac4bd027ce42949c1ff9c633bc3b9",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1795352891.5541012,
+    "ast_hash": "ea515c5cf2fbf2768da6a02824e08314",
+    "semantic_hash": ""
+  },
+  "public/favicon.svg": {
+    "mtime": 1795352891.8023798,
+    "ast_hash": "f06980969445a19ed2fedb540aaae15c",
+    "semantic_hash": ""
+  },
+  "scripts/solve-check.mjs": {
+    "mtime": 1795356342.7272968,
+    "ast_hash": "29820f31fb442faa8d84ebc2942e703c",
+    "semantic_hash": ""
+  },
+  "scripts/ui-check.mjs": {
+    "mtime": 1795382755.823535,
+    "ast_hash": "1917fe483bba10ce28498453e71a1d2b",
+    "semantic_hash": ""
+  },
+  "src/components/NetEditor.jsx": {
+    "mtime": 1795356564.536922,
+    "ast_hash": "df00826a9bd12c26aae30fb61035655f",
+    "semantic_hash": ""
+  },
+  "src/data/colors.js": {
+    "mtime": 1795356462.946769,
+    "ast_hash": "7882ec1d150b3c2f4b74c9665b124480",
+    "semantic_hash": ""
+  },
+  "src/lib/recognize.js": {
+    "mtime": 1795354490.2305777,
+    "ast_hash": "83c16f790e94966436941c66f2c16973",
+    "semantic_hash": ""
+  },
+  "src/lib/solve.js": {
+    "mtime": 1795361376.0374496,
+    "ast_hash": "4c64b8f37685cdd90ab4b8a3062477c8",
+    "semantic_hash": ""
+  },
+  "src/pages/Solve.jsx": {
+    "mtime": 1795384469.9083383,
+    "ast_hash": "6ec2d8df68cf009b43efa1f2e031e102",
+    "semantic_hash": ""
+  },
+  "src/pages/Cross.jsx": {
+    "mtime": 1795382514.3151634,
+    "ast_hash": "318ef44e0d0e9ce47dc31d8f2cfd3ef3",
+    "semantic_hash": ""
+  },
+  "src/components/Hands.jsx": {
+    "mtime": 1795361259.481042,
+    "ast_hash": "5cdb96b9df1c5fda790244c570e1faac",
+    "semantic_hash": ""
+  },
+  "src/data/fingers.js": {
+    "mtime": 1795361218.8947434,
+    "ast_hash": "84958a0547044a88ff3da56361458509",
+    "semantic_hash": ""
+  }
+}

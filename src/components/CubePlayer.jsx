@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { TwistyPlayer } from "cubing/twisty";
+import { SkipBack, CaretLeft, CaretRight, Play, Pause } from "@phosphor-icons/react";
 import { parseAlg, moveToString } from "../lib/cube.js";
+import Hands from "./Hands.jsx";
 
 const SPEEDS = [0.5, 1, 1.5, 2, 3];
 
@@ -19,7 +21,7 @@ const MASKS = {
 // Camera angle so the slot being solved faces you.
 const LONGITUDE = { FR: 31, FL: -31, BR: 149, BL: -149 };
 
-export default function CubePlayer({ alg, stickering = "full", anchor = "end", autoLoop = false, compact = false, slot }) {
+export default function CubePlayer({ alg, stickering = "full", anchor = "end", autoLoop = false, compact = false, slot, setup = "", showFingers = false, phases = null }) {
   const host = useRef(null);
   const player = useRef(null);
   const [playing, setPlaying] = useState(false);
@@ -27,11 +29,19 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
   const [speed, setSpeed] = useState(1);
   const moves = parseAlg(alg).map(moveToString);
 
+  // Which CFOP phase the next move belongs to (for the on-player badge).
+  let phaseLabel = null;
+  if (phases && phases.length) {
+    let acc = 0;
+    for (const p of phases) { acc += p.len; if (index < acc) { phaseLabel = p.label; break; } }
+    if (!phaseLabel) phaseLabel = phases[phases.length - 1].label;
+  }
+
   useEffect(() => {
     const p = new TwistyPlayer({
       puzzle: "3x3x3",
       alg,
-      experimentalSetupAlg: "z2", // yellow on top, white on the bottom, green in front
+      experimentalSetupAlg: setup ? `z2 ${setup}` : "z2", // yellow on top, white on the bottom, green in front (+ optional scramble)
       experimentalSetupAnchor: anchor,
       ...(MASKS[stickering] ? { experimentalStickeringMaskOrbits: MASKS[stickering] } : {}),
       background: "none",
@@ -74,7 +84,7 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
     };
     // speed is applied separately so changing it does not rebuild the player
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [alg, stickering, anchor, autoLoop, slot]);
+  }, [alg, stickering, anchor, autoLoop, slot, setup]);
 
   useEffect(() => { if (player.current) player.current.tempoScale = speed; }, [speed]);
 
@@ -112,6 +122,7 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
 
   return (
     <div className={`player ${compact ? "player--compact" : ""}`}>
+      {phaseLabel && <div className="player__phase">{phaseLabel}</div>}
       <div className="player__stage" ref={host} />
       {!compact && (
         <ol className="moves" aria-label="Moves">
@@ -127,18 +138,16 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
       )}
       <div className="controls">
         <button className="ctl" onClick={() => jumpTo(0)} aria-label="Restart" title="Restart (Home)">
-          <svg viewBox="0 0 24 24"><path d="M6 5v14M19 5 9 12l10 7z" /></svg>
+          <SkipBack weight="fill" />
         </button>
         {!compact && <button className="ctl" onClick={() => step(-1)} aria-label="Previous move" title="Previous move (←)">
-          <svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7" /></svg>
+          <CaretLeft weight="bold" />
         </button>}
         <button className="ctl ctl--main" onClick={toggle} aria-label={playing ? "Pause" : "Play"} title="Play / pause (space)">
-          {playing
-            ? <svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" /></svg>
-            : <svg viewBox="0 0 24 24"><path className="fill" d="M7 4.5v15L19.5 12z" /></svg>}
+          {playing ? <Pause weight="fill" /> : <Play weight="fill" />}
         </button>
         {!compact && <button className="ctl" onClick={() => step(1)} aria-label="Next move" title="Next move (→)">
-          <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" /></svg>
+          <CaretRight weight="bold" />
         </button>}
         {!compact && (
           <div className="speed" role="group" aria-label="Speed">
@@ -149,6 +158,7 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
         )}
         {!compact && <span className="counter">{index} / {moves.length}</span>}
       </div>
+      {showFingers && <Hands move={moves[index]} />}
     </div>
   );
 }

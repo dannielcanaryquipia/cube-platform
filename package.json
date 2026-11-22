@@ -9,9 +9,12 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "verify": "node scripts/verify.mjs",
-    "gen:f2l": "node scripts/gen-f2l.mjs"
+    "verify:solve": "node scripts/solve-check.mjs 200",
+    "verify:ui": "node scripts/ui-check.mjs",
+    "gen:f2l": "node --max-old-space-size=4096 scripts/gen-f2l.mjs"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "cubing": "^0.66.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
@@ -22,6 +25,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "oxlint": "^1.90.0",
+    "playwright-core": "^1.65.1",
     "vite": "^8.3.6"
   }
 }

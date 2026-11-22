@@ -1,4 +1,6 @@
 // OLL and PLL sets. Each alg is a common speedcubing choice picked for finger tricks.
+import { altFor } from "../lib/recognize.js";
+
 export const OLL = [
   [1, "Dot", "R U2 R2 F R F' U2 R' F R F'"],
   [2, "Dot", "F R U R' U' F' f R U R' U' f'"],
@@ -58,6 +60,7 @@ export const OLL = [
   [56, "Line", "r' U' r U' R' U R U' R' U R r' U r"],
   [57, "Corners oriented", "R U R' U' M' U R U' r'"],
 ].map(([n, group, alg]) => ({ id: `oll-${n}`, name: `OLL ${n}`, group, alg }));
+OLL.forEach((c) => { c.alt = altFor(c, OLL, "oll"); c.algs = algList(c); });
 
 export const PLL = [
   ["Aa", "Corners only", "x R' U R' D2 R U' R' D2 R2 x'"],
@@ -82,3 +85,11 @@ export const PLL = [
   ["Gc", "G perms", "R2 U' R U' R U R' U R2 U D' R U' R' D"],
   ["Gd", "G perms", "R U R' U' D R2 U' R U' R' U R' U R2 D'"],
 ].map(([n, group, alg]) => ({ id: `pll-${n.toLowerCase()}`, name: `${n} perm`, group, alg }));
+PLL.forEach((c) => { c.alt = altFor(c, PLL, "pll"); c.algs = algList(c); });
+
+// Standard alg plus the verified left-hand mirror, as a selectable list.
+function algList(c) {
+  const algs = [{ alg: c.alg, label: "Standard" }];
+  if (c.alt && c.alt !== c.alg) algs.push({ alg: c.alt, label: "Left hand" });
+  return algs;
+}

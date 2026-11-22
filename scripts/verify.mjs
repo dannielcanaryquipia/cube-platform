@@ -1,48 +1,46 @@
-import { SLOTS, solved, applyAlg, caseState, facelets } from "../src/lib/cube.js";
+// Checks every OLL and PLL alg is valid, that no two solve the same case,
+// that each case's left-hand alternate really solves it, and that every
+// alternative F2L alg solves the same case as its primary.
+import { readFileSync } from "node:fs";
 import { OLL, PLL } from "../src/data/ll.js";
-const isLL = (i) => SLOTS[i].p[1] === 1;
-const AUF = ["", "U", "U2", "U'"];
-const f2lSolved = (loc) => loc.every((slot, id) => isLL(id) || slot === id);
-const oriented = (loc) => f2lSolved(loc) && loc.every((slot, id) => !(isLL(id) && SLOTS[id].n[1] === 1) || SLOTS[slot].n[1] === 1);
-const upSlots = SLOTS.map((_, i) => i).filter((i) => isLL(i));
-const ollSig = (loc) => { const f = facelets(loc); return upSlots.map((s) => (SLOTS[f[s]].n[1] === 1 ? 1 : 0)).join(""); };
-const pllSig = (loc) => { const f = facelets(loc); return upSlots.map((s) => f[s]).join(","); };
-function check(set, ok, sig) {
+import { caseState, applyAlg, normalize } from "../src/lib/cube.js";
+import { oriented, isSolved, f2lSolved, ollKey, pllKey } from "../src/lib/recognize.js";
+
+const f2lData = JSON.parse(readFileSync(new URL("../src/data/f2l.json", import.meta.url)));
+
+function dedup(set, label, ok, key) {
   const seen = new Map(); let bad = 0;
   for (const c of set) {
     const st = caseState(c.alg);
     if (!ok(st)) { console.log("INVALID", c.name, c.alg); bad++; continue; }
-    let best = null;
-    for (const a of AUF) for (const b of AUF) {
-      const s = sig(applyAlg(applyAlg(applyAlg(solved(), a), ""), "") && applyAlg(applyAlg(st, a), "")); // pre-AUF only
-      const s2 = sig(applyAlg(applyAlg(applyAlg(solved(), b + " " ), ""), "")) ; void s2;
-      if (best === null || s < best) best = s;
-    }
-    if (seen.has(best)) { console.log("DUP", c.name, "=", seen.get(best)); bad++; }
-    seen.set(best, c.name);
+    const k = key(st);
+    if (seen.has(k)) { console.log("DUP", c.name, "=", seen.get(k)); bad++; }
+    seen.set(k, c.name);
   }
-  console.log(set.length, "checked, problems:", bad);
+  console.log(set.length, label, "checked, problems:", bad);
 }
-check(OLL, f2lSolved, ollSig);
-// PLL signature must be invariant to both pre and post AUF: conjugate-normalize
-function pllCanon(st) {
-  let best = null;
-  for (const a of AUF) for (const b of AUF) {
-    // relabel: apply pre-AUF a to state, then compare permutation after relabeling by b
-    const t = applyAlg(applyAlg(st, a), "");
-    const relabel = applyAlg(solved(), b); // where solved sticker goes under b
-    const f = facelets(t).map((id) => relabel[id]);
-    const s = upSlots.map((x) => f[x]).join(",");
-    if (best === null || s < best) best = s;
+
+function checkAlts() {
+  let bad = 0;
+  for (const c of OLL) {
+    if (!c.alt || !oriented(normalize(applyAlg(caseState(c.alg), c.alt)))) { console.log("BAD OLL ALT", c.name, c.alt); bad++; }
   }
-  return best;
+  for (const c of PLL) {
+    if (!c.alt || !isSolved(normalize(applyAlg(caseState(c.alg), c.alt)))) { console.log("BAD PLL ALT", c.name, c.alt); bad++; }
+  }
+  console.log(OLL.length + PLL.length, "left-hand alts checked, problems:", bad);
 }
-const seen = new Map(); let bad = 0;
-for (const c of PLL) {
-  const st = caseState(c.alg);
-  if (!oriented(st)) { console.log("INVALID", c.name); bad++; continue; }
-  const k = pllCanon(st);
-  if (seen.has(k)) { console.log("DUP", c.name, seen.get(k)); bad++; }
-  seen.set(k, c.name);
+
+function checkF2L() {
+  let bad = 0, n = 0;
+  for (const set of [f2lData.f2l, f2lData.advanced]) for (const c of set) {
+    const ref = caseState(c.alg).join(",");
+    for (const a of c.algs) { n++; if (caseState(a.alg).join(",") !== ref) { console.log("F2L ALG MISMATCH", c.id, a.alg); bad++; } }
+  }
+  console.log(n, "F2L algs checked, problems:", bad);
 }
-console.log(PLL.length, "PLL checked, problems:", bad);
+
+dedup(OLL, "OLL", f2lSolved, ollKey);
+dedup(PLL, "PLL", oriented, pllKey);
+checkAlts();
+checkF2L();

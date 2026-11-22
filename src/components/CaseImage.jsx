@@ -1,8 +1,6 @@
 import { memo, useMemo } from "react";
 import { SLOTS, caseState, facelets, faceOfSlot, slotAt } from "../lib/cube.js";
-
-// Colours match the 3D player: yellow top, green front, orange right.
-export const COLORS = { U: "#f4c430", D: "#f4f4f2", F: "#2fa165", B: "#2f6fd6", R: "#ee7a2f", L: "#d8423a", X: "#7c8591" };
+import { COLORS } from "../data/colors.js";
 
 const isLLPiece = (id) => SLOTS[id].p[1] === 1;
 

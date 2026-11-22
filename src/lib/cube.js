@@ -52,7 +52,19 @@ export function parseAlg(alg) {
   return out;
 }
 export const moveToString = ({ face, amount }) => face + (amount === 2 ? "2" : amount === 3 ? "'" : "");
+export const movesToString = (moves) => moves.map(moveToString).join(" ");
 export const invertMoves = (moves) => moves.slice().reverse().map((m) => ({ face: m.face, amount: (4 - m.amount) % 4 }));
+
+// Mirror across the plane between L and R. R<->L (and r<->l) swap faces; every move reverses
+// direction EXCEPT M and x, which keep their own letter so their direction is unchanged.
+// e.g. "R U R' U'" -> "L' U' L U" (the left-hand sexy move); "M" -> "M"; "x" -> "x".
+const MIRROR_FACE = { R: "L", L: "R", r: "l", l: "r" };
+const MIRROR_KEEPS_DIR = new Set(["M", "x"]);
+export const mirrorMoves = (moves) => moves.map(({ face, amount }) => ({
+  face: MIRROR_FACE[face] || face,
+  amount: MIRROR_KEEPS_DIR.has(face) ? amount : (4 - amount) % 4,
+}));
+export const mirrorAlg = (alg) => movesToString(mirrorMoves(parseAlg(alg)));
 
 // loc[stickerId] = slot where that sticker currently sits. Sticker ids = their solved slot.
 export const solved = () => SLOTS.map((_, i) => i);

@@ -28,14 +28,20 @@ export default function AlgSet({ set }) {
       </div>
       <div className="filters">
         <input className="filter-input" value={q} onChange={(e) => setQ(e.target.value)} placeholder={`Filter ${set.title}`} aria-label={`Filter ${set.title} cases`} />
-        <div className="chips" role="group" aria-label="Category">
-          <button className={`chip ${group === "all" ? "chip--on" : ""}`} onClick={() => setGroup("all")}>All <span>{cases.length}</span></button>
-          {set.groups.map((g) => (
-            <button key={g} className={`chip ${group === g ? "chip--on" : ""}`} onClick={() => setGroup(g)}>{g} <span>{cases.filter((c) => c.group === g).length}</span></button>
-          ))}
+        <div className="filter-row">
+          <span className="filter-label">Category</span>
+          <div className="chips chips--scroll" role="group" aria-label="Category">
+            <button className={`chip ${group === "all" ? "chip--on" : ""}`} onClick={() => setGroup("all")}>All <span>{cases.length}</span></button>
+            {set.groups.map((g) => (
+              <button key={g} className={`chip ${group === g ? "chip--on" : ""}`} onClick={() => setGroup(g)}>{g} <span>{cases.filter((c) => c.group === g).length}</span></button>
+            ))}
+          </div>
         </div>
-        <div className="chips" role="group" aria-label="Progress">
-          {STATUS.map(([k, label]) => <button key={k} className={`chip chip--sm ${status === k ? "chip--on" : ""}`} onClick={() => setStatusFilter(k)}>{label}</button>)}
+        <div className="filter-row">
+          <span className="filter-label">Show</span>
+          <div className="chips" role="group" aria-label="Progress">
+            {STATUS.map(([k, label]) => <button key={k} className={`chip chip--sm ${status === k ? "chip--on" : ""}`} onClick={() => setStatusFilter(k)}>{label}</button>)}
+          </div>
         </div>
       </div>
       {filtered.length === 0 && <CaseGrid cases={[]} />}

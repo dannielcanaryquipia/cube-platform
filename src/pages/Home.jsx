@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "@phosphor-icons/react";
 import { SETS } from "../data/sets.js";
 import { useProgress } from "../lib/progress.js";
 import CaseImage from "../components/CaseImage.jsx";
@@ -12,7 +13,7 @@ export default function Home() {
       <section className="hero">
         <h1>Learn CFOP on the 3x3, one layer at a time.</h1>
         <p>Start with how to read moves, then work through F2L, OLL and PLL. Every case has a diagram you can recognise at a glance and a 3D cube that shows the algorithm move by move.</p>
-        <Link to="/notation" className="btn">Start with notation</Link>
+        <Link to="/notation" className="btn">Start with notation <ArrowRight weight="bold" aria-hidden="true" /></Link>
       </section>
       <ol className="steps">
         <li className="step">

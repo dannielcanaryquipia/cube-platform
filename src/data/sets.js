@@ -4,7 +4,7 @@ import f2lData from "./f2l.json";
 export const SETS = [
   {
     id: "f2l", path: "/f2l", title: "F2L", subtitle: "First two layers", stickering: "F2L", view: "f2l",
-    intro: "Pair a white corner with its middle-layer edge in the top layer, then insert the pair into its slot. Every case below is for the front-right slot with the cross solved on the bottom.",
+    intro: "Pair a white corner with its middle-layer edge in the top layer, then insert the pair into its slot. Every case uses a short, finger-trick-friendly algorithm — mostly R, U and F — for the front-right slot with the cross solved on the bottom.",
     groups: ["White sticker on the side", "White sticker on top", "Corner in slot", "Edge in slot", "Both in slot"],
     cases: f2lData.f2l,
   },
