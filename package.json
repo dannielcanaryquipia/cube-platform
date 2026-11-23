@@ -14,7 +14,11 @@
     "gen:f2l": "node --max-old-space-size=4096 scripts/gen-f2l.mjs"
   },
   "dependencies": {
+    "@astryxdesign/cli": "0.7.18-canary.gfca8508",
+    "@astryxdesign/core": "0.7.18-canary.gfca8508",
+    "@astryxdesign/theme-neutral": "0.7.18-canary.gfca8508",
     "@phosphor-icons/react": "^2.1.10",
+    "@stylexjs/stylex": "0.19.2",
     "cubing": "^0.66.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

@@ -1,3 +1,4 @@
+import { VStack } from "@astryxdesign/core/Stack";
 import { slotAt } from "../lib/cube.js";
 import { COLORS } from "../data/colors.js";
 
@@ -21,9 +22,9 @@ const CENTER = Object.fromEntries(FACES.map((f) => [f, GRID[f][4]]));
 
 export default function NetEditor({ color, onPaint }) {
   return (
-    <div className="net" role="group" aria-label="Cube net — click a sticker to paint it">
+    <VStack className="net" role="group" aria-label="Cube net — click a sticker to paint it">
       {FACES.map((f) => (
-        <div className={`net-face net-face--${f}`} key={f}>
+        <VStack className={`net-face net-face--${f}`} key={f}>
           {GRID[f].map((slot) => {
             const fixed = slot === CENTER[f];
             return (
@@ -38,8 +39,8 @@ export default function NetEditor({ color, onPaint }) {
               />
             );
           })}
-        </div>
+        </VStack>
       ))}
-    </div>
+    </VStack>
   );
 }

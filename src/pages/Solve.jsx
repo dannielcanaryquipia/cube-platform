@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { VStack } from "@astryxdesign/core/Stack";
+import { HStack } from "@astryxdesign/core/HStack";
+import { Grid, GridSpan } from "@astryxdesign/core/Grid";
+import { Text } from "@astryxdesign/core/Text";
+import { Heading } from "@astryxdesign/core/Heading";
+import { Button } from "@astryxdesign/core/Button";
+import { TextInput } from "@astryxdesign/core/TextInput";
+import { Icon } from "@astryxdesign/core/Icon";
 import { Cube, Shuffle, ArrowCounterClockwise, CaretRight } from "@phosphor-icons/react";
 import { solved, applyMoves, invertMoves, parseAlg, movesToString } from "../lib/cube.js";
 import { solveCube, colorsOf } from "../lib/solve.js";
@@ -33,15 +41,17 @@ export default function Solve() {
   const [paint, setPaint] = useState("U");
   const [result, setResult] = useState(null);
   const [solving, setSolving] = useState(false);
-  const [scramble, setScramble] = useState("");       // notation of the current setup ("" if hand-painted)
+  const [scramble, setScramble] = useState("");
   const [typed, setTyped] = useState("");
   const [typeErr, setTypeErr] = useState("");
+  const [humanSpeed, setHumanSpeed] = useState(() => {
+    try { return Number(localStorage.getItem("cube-human-speed") || 2); } catch { return 2; }
+  });
 
   const apply = (loc, alg) => { setColor(colorsOf(loc)); setResult(null); setScramble(alg); };
   const onPaint = (slot) => { setResult(null); setScramble(""); setColor((c) => c.map((v, i) => (i === slot ? paint : v))); };
   const doReset = () => { apply(solved(), ""); setTyped(""); setTypeErr(""); };
-  const applyTyped = (e) => {
-    e.preventDefault();
+  const submitTyped = () => {
     const moves = parseAlg(typed);
     if (!moves.length) { setTypeErr("Enter moves like R U R' U2 F"); return; }
     setTypeErr("");
@@ -56,75 +66,107 @@ export default function Solve() {
   const scrambleSetup = result?.alg ? movesToString(invertMoves(parseAlg(result.alg))) : "";
 
   return (
-    <div>
-      <h1 className="page-title">Solve <small>Paint your cube, get a CFOP solution</small></h1>
-      <p className="lede">Colour every sticker to match the cube in your hands — hold it white on the bottom, yellow on top, green in front, like the centres shown. Then solve it and watch the method stage by stage in 3D.</p>
+    <VStack>
+      <Heading level={1}>Solve <Text as="span" color="secondary">Paint your cube, get a CFOP solution</Text></Heading>
+      <Text type="body" color="secondary">Colour every sticker to match the cube in your hands — hold it white on the bottom, yellow on top, green in front, like the centres shown. Then solve it and watch the method stage by stage in 3D.</Text>
 
-      <div className={`solve ${result?.stages ? "solve--result" : ""}`}>
-        <div className="solve__editor">
-          <div className="palette" role="group" aria-label="Pick a colour">
+      <Grid columns={{ minWidth: 340, max: 2 }} gap={3} className={`solve-bento bento-list ${result?.stages ? "solve-bento--result" : ""}`}>
+        <VStack className="bento-cell solve__editor">
+          <Text weight="bold">Cube editor</Text>
+          <HStack gap={2} wrap="wrap" className="palette" role="group" aria-label="Pick a colour">
             {PAINTS.map((f) => (
               <button key={f} className={`swatch ${paint === f ? "swatch--on" : ""}`} onClick={() => setPaint(f)}
                 style={{ background: COLORS[f] }} aria-label={FACE_NAME[f]} title={FACE_NAME[f]} />
             ))}
-          </div>
+          </HStack>
           <NetEditor color={color} onPaint={onPaint} />
-          <div className="solve__actions">
-            <button className="btn" onClick={doSolve} disabled={solving}><Cube weight="fill" aria-hidden="true" />{solving ? "Solving…" : "Solve"}</button>
-            <button className="btn btn--ghost btn--sm" onClick={() => { const s = randomScramble(); apply(s.loc, s.alg); }}><Shuffle aria-hidden="true" />Scramble</button>
-            <button className="btn btn--ghost btn--sm" onClick={doReset}><ArrowCounterClockwise aria-hidden="true" />Reset</button>
-          </div>
-          {scramble && <p className="scramble-line"><span>Scramble</span> <code className="mono">{scramble}</code></p>}
-          <form className="try" onSubmit={applyTyped}>
-            <label htmlFor="scr">Or type a scramble in notation</label>
-            <div className="try__row">
-              <input id="scr" className="filter-input mono" value={typed} onChange={(e) => setTyped(e.target.value)} placeholder="R U R' U' F2 L D2 …" />
-              <button className="btn btn--sm">Apply</button>
-            </div>
-            {typeErr && <span className="note note--warn">{typeErr}</span>}
+          <HStack gap={2} wrap="wrap" className="solve__actions">
+            <Button label={solving ? "Solving…" : "Solve"} variant="primary" icon={<Icon icon={Cube} size="sm" weight="fill" />} isDisabled={solving} onClick={doSolve} />
+            <Button label="Scramble" variant="secondary" size="sm" icon={<Icon icon={Shuffle} size="sm" />} onClick={() => { const s = randomScramble(); apply(s.loc, s.alg); }} />
+            <Button label="Reset" variant="secondary" size="sm" icon={<Icon icon={ArrowCounterClockwise} size="sm" />} onClick={doReset} />
+          </HStack>
+          {scramble && <p className="scramble-line"><Text as="span">Scramble</Text> <code className="mono">{scramble}</code></p>}
+          <form className="try" onSubmit={(e) => { e.preventDefault(); submitTyped(); }}>
+            <TextInput label="Or type a scramble in notation" value={typed} onChange={(v) => setTyped(v)}
+              onEnter={submitTyped} placeholder="R U R' U' F2 L D2 …" width="100%" />
+            <HStack gap={2}>
+              <Button label="Apply" variant="primary" size="sm" onClick={submitTyped} />
+            </HStack>
+            {typeErr && <Text as="span" className="note note--warn">{typeErr}</Text>}
           </form>
           {result?.error && <p className="note note--warn">{result.error}</p>}
-        </div>
+        </VStack>
 
-        <div className="solve__out">
-          {!result?.stages && !solving && (
-            <div className="solve__hint">
-              <p>The solution follows CFOP: a white <b>Cross</b>, then the <b>F2L</b> pairs, then <b>OLL</b> and <b>PLL</b> from this site's own algorithm sets — each last-layer stage links to its lesson.</p>
-              <p className="hint">Cross and F2L are found by a computer search, so they are short but may not match a hand-learned solution.</p>
-            </div>
-          )}
-          {result?.stages && (
-            <>
-              <div className="solve__summary">
-                <b>{result.moveCount}</b> moves · {result.stages.length} stages
-              </div>
-              <div className="solve__player">
-                <CubePlayer key={result.alg} alg={result.alg} setup={scrambleSetup} anchor="start" showFingers
-                  phases={result.stages.map((s) => ({ label: s.caseId ? `${s.stage} · ${s.caseName}` : s.stage, len: s.moves.length }))} />
-              </div>
+        {!result?.stages && !solving && (
+          <VStack className="bento-cell solve__hint">
+            <Text weight="bold">How it solves</Text>
+            <p>The solution follows CFOP: a white <b>Cross</b>, then the <b>F2L</b> pairs, then <b>OLL</b> and <b>PLL</b> from this site's own algorithm sets — each last-layer stage links to its lesson.</p>
+            <p className="hint">Cross and F2L are found by a computer search, so they are short but may not match a hand-learned solution.</p>
+          </VStack>
+        )}
+
+        {result?.stages && (
+          <VStack className="bento-cell solve__player-panel">
+            <HStack gap={2} wrap="wrap" hAlign="between" vAlign="center">
+              <Text weight="bold">Solution</Text>
+              <Text as="span" className="solve__summary"><b>{result.moveCount}</b> moves · {result.stages.length} stages</Text>
+            </HStack>
+            <VStack className="solve__player">
+              <CubePlayer key={result.alg} alg={result.alg} setup={scrambleSetup} anchor="start" showFingers
+                phases={result.stages.map((s) => ({ label: s.caseId ? `${s.stage} · ${s.caseName}` : s.stage, len: s.moves.length }))} />
+            </VStack>
+          </VStack>
+        )}
+
+        {result?.stages && (
+          <GridSpan columns="full">
+            <VStack gap={2} className="solve__stages-wrap">
+              <Text weight="bold">Stages</Text>
               <ol className="stages">
                 {result.stages.map((s, i) => (
                   <li key={i} className="stage">
-                    <div className="stage__head">
-                      <span className="stage__name">{s.stage}</span>
+                    <HStack gap={2} hAlign="between" className="stage__head">
+                      <Text as="span" className="stage__name">{s.stage}</Text>
                       {s.caseId
-                        ? <Link to={`/case/${s.caseId}`} state={{ from: "/solve" }} className="stage__case">{s.caseName}<CaretRight aria-hidden="true" /></Link>
-                        : s.caseName && <span className="stage__case stage__case--muted">{s.caseName}</span>}
-                    </div>
+                        ? <Link to={`/case/${s.caseId}`} state={{ from: "/solve" }} className="stage__case">{s.caseName}<Icon icon={CaretRight} size="sm" aria-hidden="true" /></Link>
+                        : s.caseName && <Text as="span" className="stage__case stage__case--muted">{s.caseName}</Text>}
+                    </HStack>
                     <p className="stage__desc">{PHASE_INFO[s.stage.split(" ")[0]]}</p>
-                    <div className="stage__moves">
+                    <HStack gap={1} wrap="wrap" className="stage__moves">
                       {s.moves.length
-                        ? s.moves.map((m, j) => <span key={j} className="stage__move">{m}</span>)
-                        : <span className="stage__move stage__move--none" aria-hidden="true">—</span>}
-                      {s.moves.length > 0 && <span className="stage__count">{s.moves.length} {s.moves.length === 1 ? "move" : "moves"}</span>}
-                    </div>
+                        ? s.moves.map((m, j) => <Text as="span" key={j} className="stage__move">{m}</Text>)
+                        : <Text as="span" className="stage__move stage__move--none" aria-hidden="true">—</Text>}
+                      {s.moves.length > 0 && <Text as="span" className="stage__count">{s.moves.length} {s.moves.length === 1 ? "move" : "moves"}</Text>}
+                    </HStack>
                   </li>
                 ))}
               </ol>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
+            </VStack>
+          </GridSpan>
+        )}
+
+        {result?.stages && (
+          <GridSpan columns="full">
+            <VStack className="bento-cell human-finish">
+              <Text weight="bold">Pace estimate</Text>
+              <HStack gap={2} wrap="wrap" className="human-finish__row">
+                <label htmlFor="hspeed">Human speed (moves/sec)</label>
+                <input id="hspeed" type="number" min="0.5" max="10" step="0.5" value={humanSpeed}
+                  onChange={(e) => { const v = Number(e.target.value) || 2; setHumanSpeed(v); try { localStorage.setItem("cube-human-speed", String(v)); } catch {} }} />
+              </HStack>
+              <p className="human-finish__stat">
+                Estimated human time: <b className="mono">{(result.moveCount / Math.max(0.1, humanSpeed)).toFixed(1)}s</b>
+                {" · "}Finish at <b className="mono">{new Date(Date.now() + (result.moveCount / Math.max(0.1, humanSpeed)) * 1000).toLocaleTimeString()}</b>
+              </p>
+              <p className="human-finish__stat">
+                Speedcuber time (10 moves/sec): <b className="mono">{(result.moveCount / 10).toFixed(2)}s</b>
+                {" · "}Yiheng Wang pace (12 moves/sec): <b className="mono">{(result.moveCount / 12).toFixed(2)}s</b>
+              </p>
+              <p className="hint">Computer found {result.moveCount} moves. At your speed that's a {result.moveCount / Math.max(0.1, humanSpeed) < 30 ? "fast" : result.moveCount / Math.max(0.1, humanSpeed) < 60 ? "solid" : "long"} solve.</p>
+            </VStack>
+          </GridSpan>
+        )}
+      </Grid>
+    </VStack>
   );
 }

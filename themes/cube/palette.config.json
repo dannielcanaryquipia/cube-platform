@@ -1,0 +1,164 @@
+{
+  "recipe": "astryx-oklch-v2",
+  "modeStrategy": "light-and-dark",
+  "families": [
+    {
+      "id": "accent",
+      "name": "Accent",
+      "seed": "#1f6f5c",
+      "anchors": [
+        {
+          "mode": "light",
+          "stop": 40,
+          "color": "#1f6f5c",
+          "policy": "exact"
+        }
+      ]
+    },
+    {
+      "id": "neutral",
+      "name": "Neutral",
+      "seed": "#1c232d",
+      "kind": "neutral",
+      "anchors": [
+        {
+          "mode": "light",
+          "stop": 15,
+          "color": "#1c232d",
+          "policy": "exact"
+        },
+        {
+          "mode": "dark",
+          "stop": 15,
+          "color": "#1c232d",
+          "policy": "exact"
+        }
+      ]
+    },
+    {
+      "id": "success",
+      "name": "Success",
+      "seed": "#2e9c62",
+      "anchors": [
+        {
+          "mode": "light",
+          "stop": 55,
+          "color": "#2e9c62",
+          "policy": "exact"
+        },
+        {
+          "mode": "dark",
+          "stop": 55,
+          "color": "#2e9c62",
+          "policy": "exact"
+        }
+      ]
+    },
+    {
+      "id": "warning",
+      "name": "Warning",
+      "seed": "#b68119",
+      "anchors": [
+        {
+          "mode": "light",
+          "stop": 60,
+          "color": "#b68119",
+          "policy": "exact"
+        },
+        {
+          "mode": "dark",
+          "stop": 60,
+          "color": "#b68119",
+          "policy": "exact"
+        }
+      ]
+    },
+    {
+      "id": "danger",
+      "name": "Danger",
+      "seed": "#d8423a",
+      "anchors": [
+        {
+          "mode": "light",
+          "stop": 55,
+          "color": "#d8423a",
+          "policy": "exact"
+        }
+      ]
+    },
+    {
+      "id": "info",
+      "name": "Info",
+      "seed": "#2f6fd6",
+      "anchors": [
+        {
+          "mode": "light",
+          "stop": 50,
+          "color": "#2f6fd6",
+          "policy": "exact"
+        },
+        {
+          "mode": "dark",
+          "stop": 50,
+          "color": "#2f6fd6",
+          "policy": "exact"
+        }
+      ]
+    },
+    {
+      "id": "red",
+      "name": "Red",
+      "seed": "#ce3a2e"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "seed": "#cd7725"
+    },
+    {
+      "id": "yellow",
+      "name": "Yellow",
+      "seed": "#dbd350"
+    },
+    {
+      "id": "green",
+      "name": "Green",
+      "seed": "#1f8b53"
+    },
+    {
+      "id": "teal",
+      "name": "Teal",
+      "seed": "#1d7169"
+    },
+    {
+      "id": "cyan",
+      "name": "Cyan",
+      "seed": "#1f6e7d"
+    },
+    {
+      "id": "blue",
+      "name": "Blue",
+      "seed": "#007dc5"
+    },
+    {
+      "id": "purple",
+      "name": "Purple",
+      "seed": "#7e32c0"
+    },
+    {
+      "id": "pink",
+      "name": "Pink",
+      "seed": "#ad2261"
+    },
+    {
+      "id": "brown",
+      "name": "Brown",
+      "seed": "#906119"
+    },
+    {
+      "id": "indigo",
+      "name": "Indigo",
+      "seed": "#5893f4"
+    }
+  ]
+}

@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { VStack } from "@astryxdesign/core/Stack";
+import { HStack } from "@astryxdesign/core/HStack";
+import { Grid } from "@astryxdesign/core/Grid";
+import { GridSpan } from "@astryxdesign/core/Grid";
+import { Text } from "@astryxdesign/core/Text";
+import { Heading } from "@astryxdesign/core/Heading";
+import { Button } from "@astryxdesign/core/Button";
+import { TextInput } from "@astryxdesign/core/TextInput";
+import { Icon } from "@astryxdesign/core/Icon";
 import { Shuffle, ArrowRight } from "@phosphor-icons/react";
 import { solved, applyMoves, parseAlg, movesToString } from "../lib/cube.js";
 import { solveCross } from "../lib/solve.js";
 import CubePlayer from "../components/CubePlayer.jsx";
 
-// Verified examples: each cross alg solves the white cross from its scramble (see scripts/solve-check).
 const EXAMPLES = [
   { scramble: "B' R' U F2 R D2 L' U R D B' R D2 B' D' L' F' L F' R", cross: "U R B2 D R F D" },
   { scramble: "L' U R' U2 L' R D2 B' F2 D' F' U' D' F2 D' F R' D R D'", cross: "D2 B D R' F' D" },
@@ -53,55 +61,54 @@ export default function Cross() {
   };
   const crossLen = parseAlg(cur.cross).length;
   return (
-    <div>
-      <h1 className="page-title">Cross <small>The first step of CFOP</small></h1>
-      <p className="lede">Before F2L you build a white cross on the bottom: the four white edges, each lined up with its matching centre. It is solved intuitively, not with a memorised algorithm, so the goal is to see it and plan it rather than recall moves.</p>
-      <div className="notation">
-        <div className="notation__list">
-          <section className="nsec">
-            <h2>What you are making</h2>
-            <p>A plus sign of white on the bottom face, where every edge's second colour matches the centre beside it. When it is right, the bottom is a white cross and the four sides each show a short matching stripe.</p>
-          </section>
-          <section className="nsec">
-            <h2>How to build it</h2>
-            <ol className="steps-list">
-              {STEPS.map(([t, d]) => <li key={t}><b>{t}.</b> {d}</li>)}
-            </ol>
-          </section>
-          <section className="nsec">
-            <h2>Habits for a fast cross</h2>
-            <div className="tips">{TIPS.map((t) => <div key={t.t} className="tip"><b>{t.t}</b><p>{t.d}</p></div>)}</div>
-            <p className="next-link">Cross done? <Link to="/f2l">Go on to F2L <ArrowRight weight="bold" aria-hidden="true" /></Link></p>
-          </section>
-        </div>
-        <aside className="notation__player">
-          <div className="sticky">
-            <div className="now">
-              <span className="now__m">{cur.title}</span>
-              <span className="now__d">a {crossLen}-move cross from a full scramble</span>
-            </div>
+    <VStack>
+      <Heading level={1}>Cross <Text as="span" color="secondary">The first step of CFOP</Text></Heading>
+      <Text type="body" color="secondary">Before F2L you build a white cross on the bottom: the four white edges, each lined up with its matching centre. It is solved intuitively, not with a memorised algorithm, so the goal is to see it and plan it rather than recall moves.</Text>
+      <VStack className="notation">
+        <Grid columns={{ minWidth: 260, max: 2 }} gap={3} className="notation__list bento-list">
+          <VStack gap={2} className="bento-cell">
+            <Heading level={2}>What you are making</Heading>
+            <Text type="body" color="secondary">A plus sign of white on the bottom face, where every edge's second colour matches the centre beside it. When it is right, the bottom is a white cross and the four sides each show a short matching stripe.</Text>
+          </VStack>
+          <VStack gap={2} className="bento-cell">
+            <Heading level={2}>How to build it</Heading>
+            <VStack gap={1}>
+              {STEPS.map(([t, d]) => <Text key={t} type="body"><Text weight="bold">{t}.</Text> {d}</Text>)}
+            </VStack>
+          </VStack>
+          <GridSpan columns="full">
+            <VStack gap={2} className="bento-cell">
+              <Heading level={2}>Habits for a fast cross</Heading>
+              <Grid columns={{ minWidth: 220, max: 2 }} gap={3}>{TIPS.map((t) => <VStack key={t.t} gap={1}><Text weight="bold">{t.t}</Text><Text type="body" color="secondary">{t.d}</Text></VStack>)}</Grid>
+              <Text type="body" color="secondary">Cross done? <Link to="/f2l">Go on to F2L <Icon icon={ArrowRight} size="sm" weight="bold" aria-hidden="true" style={{ display: "inline-block", verticalAlign: "-0.15em" }} /></Link></Text>
+            </VStack>
+          </GridSpan>
+        </Grid>
+        <VStack as="aside" className="notation__player">
+          <VStack className="sticky">
+            <VStack className="now">
+              <Text as="span" className="now__m">{cur.title}</Text>
+              <Text as="span" className="now__d">a {crossLen}-move cross from a full scramble</Text>
+            </VStack>
             <CubePlayer key={cur.scramble + cur.cross} alg={cur.cross} setup={cur.scramble} anchor="start"
               showFingers phases={[{ label: "Cross", len: 999 }]} />
-            <div className="chips" role="group" aria-label="Pick an example">
+            <HStack gap={2} wrap="wrap">
               {EXAMPLES.map((e, i) => (
-                <button key={i} className={`chip chip--sm ${cur.scramble === e.scramble ? "chip--on" : ""}`}
-                  onClick={() => setCur({ ...e, title: `Worked example ${i + 1}` })}>Example {i + 1}</button>
+                <Button key={i} label={`Example ${i + 1}`} variant={cur.scramble === e.scramble ? "primary" : "secondary"} size="sm"
+                  onClick={() => setCur({ ...e, title: `Worked example ${i + 1}` })} />
               ))}
-              <button className="chip chip--sm chip--icon" onClick={() => fromScramble(randomScramble(), "Your scramble")}><Shuffle aria-hidden="true" />Scramble</button>
-            </div>
-            <form className="try" onSubmit={applyTyped}>
-              <label htmlFor="cscr">Or type a scramble</label>
-              <div className="try__row">
-                <input id="cscr" className="filter-input mono" value={typed} onChange={(e) => setTyped(e.target.value)} placeholder="R U R' U' F2 L …" />
-                <button className="btn btn--sm">Apply</button>
-              </div>
-              {err && <span className="note note--warn">{err}</span>}
-            </form>
-            <p className="trick"><b>Scramble</b> {cur.scramble}</p>
-            <p className="trick"><b>Cross solution</b> {cur.cross}</p>
-          </div>
-        </aside>
-      </div>
-    </div>
+              <Button label="Scramble" variant="secondary" size="sm" icon={<Icon icon={Shuffle} size="sm" />} onClick={() => fromScramble(randomScramble(), "Your scramble")} />
+            </HStack>
+            <VStack gap={2}>
+              <TextInput label="Or type a scramble" value={typed} onChange={(v) => setTyped(v)} placeholder="R U R' U' F2 L …" />
+              <Button label="Apply" variant="primary" size="sm" type="submit" onClick={applyTyped} />
+            </VStack>
+            {err && <Text type="body" color="secondary">{err}</Text>}
+            <Text type="body">Scramble: {cur.scramble}</Text>
+            <Text type="body">Cross solution: {cur.cross}</Text>
+          </VStack>
+        </VStack>
+      </VStack>
+    </VStack>
   );
 }

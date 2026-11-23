@@ -1,35 +1,31 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { TwistyPlayer } from "cubing/twisty";
+import { VStack } from "@astryxdesign/core/Stack";
+import { HStack } from "@astryxdesign/core/HStack";
+import { Text } from "@astryxdesign/core/Text";
+import { Icon } from "@astryxdesign/core/Icon";
 import { SkipBack, CaretLeft, CaretRight, Play, Pause } from "@phosphor-icons/react";
 import { parseAlg, moveToString } from "../lib/cube.js";
 import Hands from "./Hands.jsx";
 
-const SPEEDS = [0.5, 1, 1.5, 2, 3];
+const SPEEDS = [0.5, 1, 2, 3, 5, 10];
 
-// The cube is turned with z2 so white sits on the bottom. cubing.js stickerings follow the pieces,
-// so its built-in "F2L"/"OLL"/"PLL" masks would end up upside down. These masks are written for
-// that orientation. Order: EDGES UF UR UB UL DF DR DB DL FR FL BR BL, CORNERS UFR URB UBL ULF DRF DFL DLB DBR,
-// CENTERS U L F R B D (cubing.js names, before the z2 turn: its U pieces are the white ones).
 const MASKS = {
   F2L: "EDGES:----DDDD----,CORNERS:----DDDD,CENTERS:------",
   OLL: "EDGES:DDDDOOOODDDD,CORNERS:DDDDOOOO,CENTERS:DDDDD-",
   PLL: "EDGES:DDDD----DDDD,CORNERS:DDDD----,CENTERS:DDDDD-",
 };
 
-// 3D cube that plays an algorithm with play/pause, single-step and a clickable move list.
-// anchor "end": the cube starts in the case and finishes solved. anchor "start": starts solved (notation demos).
-// Camera angle so the slot being solved faces you.
 const LONGITUDE = { FR: 31, FL: -31, BR: 149, BL: -149 };
 
 export default function CubePlayer({ alg, stickering = "full", anchor = "end", autoLoop = false, compact = false, slot, setup = "", showFingers = false, phases = null }) {
   const host = useRef(null);
   const player = useRef(null);
   const [playing, setPlaying] = useState(false);
-  const [index, setIndex] = useState(0); // number of moves already done
+  const [index, setIndex] = useState(0);
   const [speed, setSpeed] = useState(1);
   const moves = parseAlg(alg).map(moveToString);
 
-  // Which CFOP phase the next move belongs to (for the on-player badge).
   let phaseLabel = null;
   if (phases && phases.length) {
     let acc = 0;
@@ -41,7 +37,7 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
     const p = new TwistyPlayer({
       puzzle: "3x3x3",
       alg,
-      experimentalSetupAlg: setup ? `z2 ${setup}` : "z2", // yellow on top, white on the bottom, green in front (+ optional scramble)
+      experimentalSetupAlg: setup ? `z2 ${setup}` : "z2",
       experimentalSetupAnchor: anchor,
       ...(MASKS[stickering] ? { experimentalStickeringMaskOrbits: MASKS[stickering] } : {}),
       background: "none",
@@ -59,7 +55,6 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
     const onTime = async (info) => {
       const indexer = await model.indexer.get();
       const n = indexer.numAnimatedLeaves();
-      // count moves whose animation has fully finished at this timestamp
       let done = 0;
       while (done < n && indexer.indexToMoveStartTimestamp(done) + indexer.moveDuration(done) <= info.timestamp) done++;
       setIndex(info.atEnd ? n : done);
@@ -82,8 +77,6 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
       p.remove();
       player.current = null;
     };
-    // speed is applied separately so changing it does not rebuild the player
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [alg, stickering, anchor, autoLoop, slot, setup]);
 
   useEffect(() => { if (player.current) player.current.tempoScale = speed; }, [speed]);
@@ -121,9 +114,9 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
   });
 
   return (
-    <div className={`player ${compact ? "player--compact" : ""}`}>
-      {phaseLabel && <div className="player__phase">{phaseLabel}</div>}
-      <div className="player__stage" ref={host} />
+    <VStack className={`player ${compact ? "player--compact" : ""}`}>
+      {phaseLabel && <VStack className="player__phase">{phaseLabel}</VStack>}
+      <VStack className="player__stage" ref={host} />
       {!compact && (
         <ol className="moves" aria-label="Moves">
           {moves.map((m, i) => (
@@ -136,29 +129,29 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
           ))}
         </ol>
       )}
-      <div className="controls">
+      <HStack gap={2} wrap="wrap" className="controls">
         <button className="ctl" onClick={() => jumpTo(0)} aria-label="Restart" title="Restart (Home)">
-          <SkipBack weight="fill" />
+          <Icon icon={SkipBack} size="md" weight="fill" />
         </button>
         {!compact && <button className="ctl" onClick={() => step(-1)} aria-label="Previous move" title="Previous move (←)">
-          <CaretLeft weight="bold" />
+          <Icon icon={CaretLeft} size="md" weight="bold" />
         </button>}
         <button className="ctl ctl--main" onClick={toggle} aria-label={playing ? "Pause" : "Play"} title="Play / pause (space)">
-          {playing ? <Pause weight="fill" /> : <Play weight="fill" />}
+          {playing ? <Icon icon={Pause} size="md" weight="fill" /> : <Icon icon={Play} size="md" weight="fill" />}
         </button>
         {!compact && <button className="ctl" onClick={() => step(1)} aria-label="Next move" title="Next move (→)">
-          <CaretRight weight="bold" />
+          <Icon icon={CaretRight} size="md" weight="bold" />
         </button>}
         {!compact && (
-          <div className="speed" role="group" aria-label="Speed">
+          <HStack gap={1} className="speed" role="group" aria-label="Speed">
             {SPEEDS.map((s) => (
               <button key={s} className={`chip chip--sm ${s === speed ? "chip--on" : ""}`} onClick={() => setSpeed(s)}>{s}×</button>
             ))}
-          </div>
+          </HStack>
         )}
-        {!compact && <span className="counter">{index} / {moves.length}</span>}
-      </div>
+        {!compact && <Text as="span" className="counter">{index} / {moves.length}</Text>}
+      </HStack>
       {showFingers && <Hands move={moves[index]} />}
-    </div>
+    </VStack>
   );
 }

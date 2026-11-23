@@ -1,4 +1,10 @@
 import { useMemo, useState } from "react";
+import { VStack } from "@astryxdesign/core/Stack";
+import { HStack } from "@astryxdesign/core/HStack";
+import { Text } from "@astryxdesign/core/Text";
+import { Heading } from "@astryxdesign/core/Heading";
+import { Button } from "@astryxdesign/core/Button";
+import { TextInput } from "@astryxdesign/core/TextInput";
 import { matchCase } from "../lib/search.js";
 import { useProgress } from "../lib/progress.js";
 import CaseGrid from "../components/CaseGrid.jsx";
@@ -18,43 +24,43 @@ export default function AlgSet({ set }) {
   const groups = set.groups.filter((g) => group === "all" || g === group);
   const learned = cases.filter((c) => progress[c.id] === "learned").length;
   return (
-    <div>
-      <div className="set-head">
-        <div>
-          <h1 className="page-title">{set.title} <small>{set.subtitle}</small></h1>
-          <p className="lede">{set.intro}</p>
-        </div>
-        <div className="set-stats"><b>{learned}</b><span>of {cases.length} learned</span></div>
-      </div>
-      <div className="filters">
-        <input className="filter-input" value={q} onChange={(e) => setQ(e.target.value)} placeholder={`Filter ${set.title}`} aria-label={`Filter ${set.title} cases`} />
-        <div className="filter-row">
-          <span className="filter-label">Category</span>
-          <div className="chips chips--scroll" role="group" aria-label="Category">
-            <button className={`chip ${group === "all" ? "chip--on" : ""}`} onClick={() => setGroup("all")}>All <span>{cases.length}</span></button>
+    <VStack gap={4}>
+      <VStack gap={2}>
+        <Heading level={1}>{set.title} <Text as="span" color="secondary">{set.subtitle}</Text></Heading>
+        <Text type="body" color="secondary">{set.intro}</Text>
+        <Text type="supporting" color="secondary">{learned} of {cases.length} learned</Text>
+      </VStack>
+      <VStack gap={3}>
+        <TextInput label={`Filter ${set.title}`} value={q} onChange={(v) => setQ(v)} placeholder={`Filter ${set.title}`} />
+        <VStack gap={2}>
+          <Text type="supporting" color="secondary">Category</Text>
+          <HStack gap={2} wrap="wrap" className="chips--scroll">
+            <Button label={`All (${cases.length})`} variant={group === "all" ? "primary" : "secondary"} size="sm" onClick={() => setGroup("all")} />
             {set.groups.map((g) => (
-              <button key={g} className={`chip ${group === g ? "chip--on" : ""}`} onClick={() => setGroup(g)}>{g} <span>{cases.filter((c) => c.group === g).length}</span></button>
+              <Button key={g} label={`${g} (${cases.filter((c) => c.group === g).length})`} variant={group === g ? "primary" : "secondary"} size="sm" onClick={() => setGroup(g)} />
             ))}
-          </div>
-        </div>
-        <div className="filter-row">
-          <span className="filter-label">Show</span>
-          <div className="chips" role="group" aria-label="Progress">
-            {STATUS.map(([k, label]) => <button key={k} className={`chip chip--sm ${status === k ? "chip--on" : ""}`} onClick={() => setStatusFilter(k)}>{label}</button>)}
-          </div>
-        </div>
-      </div>
+          </HStack>
+        </VStack>
+        <VStack gap={2}>
+          <Text type="supporting" color="secondary">Show</Text>
+          <HStack gap={2} wrap="wrap" className="chips--scroll">
+            {STATUS.map(([k, label]) => (
+              <Button key={k} label={label} variant={status === k ? "primary" : "secondary"} size="sm" onClick={() => setStatusFilter(k)} />
+            ))}
+          </HStack>
+        </VStack>
+      </VStack>
       {filtered.length === 0 && <CaseGrid cases={[]} />}
       {groups.map((g) => {
         const list = filtered.filter((c) => c.group === g);
         if (!list.length) return null;
         return (
-          <section key={g} className="group">
-            <h2 className="group__title">{g} <span>{list.length}</span></h2>
+          <VStack key={g} gap={2}>
+            <Heading level={2}>{g} <Text as="span" color="secondary">{list.length}</Text></Heading>
             <CaseGrid cases={list} />
-          </section>
+          </VStack>
         );
       })}
-    </div>
+    </VStack>
   );
 }

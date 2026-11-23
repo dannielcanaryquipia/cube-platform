@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { VStack } from "@astryxdesign/core/Stack";
+import { HStack } from "@astryxdesign/core/HStack";
+import { Grid, GridSpan } from "@astryxdesign/core/Grid";
+import { Text } from "@astryxdesign/core/Text";
+import { Heading } from "@astryxdesign/core/Heading";
+import { Button } from "@astryxdesign/core/Button";
+import { TextInput } from "@astryxdesign/core/TextInput";
 import { ArrowRight } from "@phosphor-icons/react";
+import { Icon } from "@astryxdesign/core/Icon";
 import { NOTATION, TIPS } from "../data/notation.js";
 import CubePlayer from "../components/CubePlayer.jsx";
 
@@ -14,60 +22,72 @@ export default function Notation() {
   const pickSection = (s) => { setSecId(s.id); setSel(s.moves[0]); setTried(null); };
 
   return (
-    <div>
-      <h1 className="page-title">Notation <small>Read any algorithm</small></h1>
-      <p className="lede">Algorithms are a list of moves. Pick a group, then a move to watch it on the cube. Hold the cube with yellow on top and green facing you.</p>
+    <VStack>
+      <Heading level={1}>Notation <Text as="span" color="secondary">Read any algorithm</Text></Heading>
+      <Text type="body" color="secondary">Algorithms are a list of moves. Pick a group, then a move to watch it on the cube. Hold the cube with yellow on top and green facing you.</Text>
 
-      <div className="chips chips--scroll ntabs" role="tablist" aria-label="Move groups">
+      <HStack gap={1.5} wrap="wrap" className="chips chips--scroll ntabs" role="tablist" aria-label="Move groups">
         {NOTATION.map((s) => (
-          <button key={s.id} role="tab" aria-selected={secId === s.id}
-            className={`chip ${secId === s.id ? "chip--on" : ""}`} onClick={() => pickSection(s)}>{s.title}</button>
+          <Button key={s.id} label={s.title} variant={secId === s.id ? "primary" : "secondary"} size="sm" onClick={() => pickSection(s)} />
         ))}
-        <button role="tab" aria-selected={secId === "habits"}
-          className={`chip ${secId === "habits" ? "chip--on" : ""}`} onClick={() => setSecId("habits")}>Habits</button>
-      </div>
+        <Button label="Habits" variant={secId === "habits" ? "primary" : "secondary"} size="sm" onClick={() => setSecId("habits")} />
+      </HStack>
 
-      <div className="notation">
-        <div className="notation__list">
+      <VStack className="notation">
+        <Grid columns={{ minWidth: 280, max: 2 }} gap={3} className="notation__list bento-list">
           {active ? (
-            <section className="nsec">
-              <h2>{active.title}</h2>
-              <p>{active.text}</p>
-              <div className="mgrid">
-                {active.moves.map((mv) => (
-                  <button key={mv.m} className={`mtile ${sel.m === mv.m && !tried ? "mtile--on" : ""}`} onClick={() => { setSel(mv); setTried(null); }}>
-                    <span className="mtile__m">{mv.m}</span>
-                    <span className="mtile__d">{mv.d}</span>
-                  </button>
-                ))}
-              </div>
-            </section>
+            <>
+              <GridSpan columns="full">
+                <VStack gap={2} className="bento-cell">
+                  <Heading level={2}>{active.title}</Heading>
+                  <Text type="body" color="secondary">{active.text}</Text>
+                  <Grid columns={{ minWidth: 150, max: 4 }} gap={2}>
+                    {active.moves.map((mv) => (
+                      <button key={mv.m} className={`mtile ${sel.m === mv.m && !tried ? "mtile--on" : ""}`}
+                        onClick={() => { setSel(mv); setTried(null); }}>
+                        <span className="mtile__m">{mv.m}</span>
+                        <span className="mtile__d">{mv.d}</span>
+                      </button>
+                    ))}
+                  </Grid>
+                </VStack>
+              </GridSpan>
+              <GridSpan columns="full">
+                <VStack gap={2} className="bento-cell">
+                  <Heading level={2}>Quick tips</Heading>
+                  <Grid columns={{ minWidth: 220, max: 3 }} gap={2}>{TIPS.map((t) => <VStack key={t.t} gap={1}><Text weight="bold">{t.t}</Text><Text type="body" color="secondary">{t.d}</Text></VStack>)}</Grid>
+                </VStack>
+              </GridSpan>
+            </>
           ) : (
-            <section className="nsec">
-              <h2>Habits worth building</h2>
-              <div className="tips">{TIPS.map((t) => <div key={t.t} className="tip"><b>{t.t}</b><p>{t.d}</p></div>)}</div>
-            </section>
+            <GridSpan columns="full">
+              <VStack gap={2} className="bento-cell">
+                <Heading level={2}>Habits worth building</Heading>
+                <Grid columns={{ minWidth: 220, max: 3 }} gap={2}>{TIPS.map((t) => <VStack key={t.t} gap={1} className="tip"><Text weight="bold">{t.t}</Text><Text type="body" color="secondary">{t.d}</Text></VStack>)}</Grid>
+              </VStack>
+            </GridSpan>
           )}
-          <p className="next-link">Ready? <Link to="/cross">Go on to the Cross <ArrowRight weight="bold" aria-hidden="true" /></Link></p>
-        </div>
-        <aside className="notation__player">
-          <div className="sticky">
-            <div className="now">
-              <span className="now__m">{tried ? "Your alg" : sel.m}</span>
-              <span className="now__d">{tried ? tried : sel.d}</span>
-            </div>
+          <GridSpan columns="full">
+            <VStack className="bento-cell" gap={1}>
+              <Text type="body" color="secondary" className="next-link">Ready? <Link to="/cross">Go on to the Cross <Icon icon={ArrowRight} size="sm" weight="bold" aria-hidden="true" style={{ display: "inline-block", verticalAlign: "-0.15em" }} /></Link></Text>
+            </VStack>
+          </GridSpan>
+        </Grid>
+        <VStack as="aside" className="notation__player">
+          <VStack className="sticky">
+            <VStack gap={1}>
+              <Text weight="bold" size="xl">{tried ? "Your alg" : sel.m}</Text>
+              <Text type="body" color="secondary">{tried ? tried : sel.d}</Text>
+            </VStack>
             <CubePlayer key={tried || sel.m} alg={tried || sel.m} anchor="start" autoLoop compact showFingers />
-            {!tried && sel.trick && <p className="trick"><b>Finger trick</b> {sel.trick}</p>}
-            <form className="try" onSubmit={(e) => { e.preventDefault(); if (custom.trim()) setTried(custom.trim()); }}>
-              <label htmlFor="try">Try your own moves</label>
-              <div className="try__row">
-                <input id="try" className="filter-input mono" value={custom} onChange={(e) => setCustom(e.target.value)} />
-                <button className="btn btn--sm">Play</button>
-              </div>
-            </form>
-          </div>
-        </aside>
-      </div>
-    </div>
+            {!tried && sel.trick && <Text type="body">Finger trick: {sel.trick}</Text>}
+            <VStack gap={2}>
+              <TextInput label="Try your own moves" value={custom} onChange={(v) => setCustom(v)} />
+              <Button label="Play" variant="primary" size="sm" onClick={() => { if (custom.trim()) setTried(custom.trim()); }} />
+            </VStack>
+          </VStack>
+        </VStack>
+      </VStack>
+    </VStack>
   );
 }

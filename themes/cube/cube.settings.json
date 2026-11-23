@@ -1,0 +1,63 @@
+{
+  "name": "cube",
+  "like": "neutral",
+  "mode": "both",
+  "settings": [
+    {
+      "thing": "accent",
+      "value": "#1f6f5c",
+      "source": "dial"
+    },
+    {
+      "thing": "neutral",
+      "value": "#1c232d",
+      "source": "dial"
+    },
+    {
+      "thing": "danger",
+      "value": "#d8423a",
+      "source": "dial"
+    },
+    {
+      "thing": "info",
+      "value": "#2f6fd6",
+      "source": "dial"
+    },
+    {
+      "thing": "success",
+      "value": "#2e9c62",
+      "source": "dial"
+    },
+    {
+      "thing": "warning",
+      "value": "#b68119",
+      "source": "dial"
+    },
+    {
+      "thing": "--color-on-error",
+      "value": "#000000",
+      "source": "token",
+      "on": "badge",
+      "when": "variant:error",
+      "mode": "light"
+    },
+    {
+      "thing": "background-color",
+      "value": "var(--color-neutral)",
+      "source": "property",
+      "on": "button",
+      "when": "variant:primary",
+      "state": "disabled"
+    },
+    {
+      "thing": "color",
+      "value": "var(--color-text-primary)",
+      "source": "property",
+      "on": "button",
+      "when": "variant:primary",
+      "state": "disabled"
+    }
+  ],
+  "lifted": [],
+  "palette": "d708ceb61695703c3f2980dc120ff7cea55485e47515d3a15605d8bed522367d"
+}
