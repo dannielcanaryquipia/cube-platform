@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\Danniel Canary\\Desktop\\cube-platform\\.archify\\architecture-cube-platform-20261123-142552\\candidate.json",
+    "sha256": "ffd6c24db0a4d054932323b1f73d9ae0bf5dfed5fef86201be13c8a23266d533",
+    "bytes": 6662
+  },
+  "artifact": {
+    "path": "C:\\Users\\Danniel Canary\\Desktop\\cube-platform\\.archify\\architecture-cube-platform-20261123-142552\\cube-platform-architecture.html",
+    "sha256": "e5e4d5d937146225086a2f3ffe4263b41cff91f35eadc957d44e6ce7ad7aa44f",
+    "bytes": 855125
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\Danniel Canary\\Desktop\\cube-platform\\.archify\\architecture-cube-platform-20261123-142552\\review-2\\cube-platform-architecture.finalize.json",
+    "summaryReceipt": "C:\\Users\\Danniel Canary\\Desktop\\cube-platform\\.archify\\architecture-cube-platform-20261123-142552\\review-2\\cube-platform-architecture.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\Danniel Canary\\Desktop\\cube-platform\\.archify\\architecture-cube-platform-20261123-142552\\review-2\\cube-platform-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "update_available",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.3.0",
+    "releaseNotes": "https://github.com/tt-a1i/archify/releases/tag/v3.3.0",
+    "severity": "normal",
+    "summary": "Adds Code Analysis & Architecture Diagnosis, Story walkthroughs and 1080p video, PR walkthroughs, automatic architecture placement, and lighter installs.",
+    "checkedAt": "2026-11-23T06:27:21.994Z",
+    "source": "cache",
+    "noticeRequired": true,
+    "noticeText": "Archify update: 3.2.0 → 3.3.0. A previous check at 2026-11-23T06:27:21.994Z found a newer release. Release notes: https://github.com/tt-a1i/archify/releases/tag/v3.3.0. Would you like me to update Archify?",
+    "eventKey": "archify@sha256:00e4ff53267aee7dabf22ed333360cd3e380db20271a50264ae146ee25cf2538"
+  },
+  "visualReview": "not-requested",
+  "durationMs": 11155,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 2,
+      "routesOverSuggestedBends": 1,
+      "routesOverSuggestedStretch": 1
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "pages-components",
+            "from": "pages",
+            "to": "ui-components",
+            "label": "render",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "scripts-engine",
+            "from": "verify-scripts",
+            "to": "cube-engine",
+            "label": "verify &amp; generate",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            701.6,
+            286
+          ]
+        },
+        {
+          "left": {
+            "id": "components-engine",
+            "from": "cube-engine",
+            "to": "ui-components",
+            "label": "state, parse, solve",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "right": {
+            "id": "scripts-engine",
+            "from": "verify-scripts",
+            "to": "cube-engine",
+            "label": "verify &amp; generate",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            813,
+            226
+          ],
+          "sharedNode": "cube-engine"
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "scripts-engine",
+            "from": "verify-scripts",
+            "to": "cube-engine",
+            "label": "verify &amp; generate",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 6,
+          "stretch": 1.74,
+          "directCorridorBlockers": [
+            {
+              "id": "ui-components",
+              "label": "UI Components",
+              "box": [
+                730,
+                250,
+                180,
+                72
+              ]
+            },
+            {
+              "id": "browser-storage",
+              "label": "Browser Storage",
+              "box": [
+                730,
+                390,
+                180,
+                64
+              ]
+            }
+          ]
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "pages → ui-components crosses verify-scripts → cube-engine: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "cube-engine → ui-components and verify-scripts → cube-engine cross next to cube-engine: move node ui-components or verify-scripts so the two reach cube-engine from different sides (for example one level with it, one directly above or below it)."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

@@ -1,50 +1,54 @@
 # Graph Report - cube-platform  (2026-11-23)
 
 ## Corpus Check
-- 35 files · ~21,871 words
+- 64 files · ~497,986 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 249 nodes · 522 edges · 14 communities (13 shown, 1 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.67)
+- 349 nodes · 669 edges · 27 communities (24 shown, 3 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 18 edges (avg confidence: 0.63)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e1b76d98`
+- Built from commit: `44b691b5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- cube.js
+- lib/cube.js
 - gen-f2l.mjs
 - scripts
-- solve.js
-- recognize.js
 - App.jsx
+- solve.js
+- CasePage.jsx
 - ui-check.mjs
-- devDependencies
+- dependencies
 - .oxlintrc.json
 - Solve.jsx
 - Layer by Layer
 - Hands.jsx
-- solve-check.mjs
+- cube.settings.ts
+- src/themes/cube/cube.variants.d.ts
+- themes/cube/cube.variants.d.ts
+- responsive-check.mjs
+- cube.palette.ts
+- colors.js
+- themes/cube/cube.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `parseAlg()` - 15 edges
-2. `applyAlg()` - 15 edges
-3. `solve()` - 14 edges
-4. `applyMoves()` - 13 edges
-5. `normalize()` - 13 edges
-6. `caseState()` - 13 edges
-7. `movesToString()` - 12 edges
-8. `solved()` - 12 edges
-9. `react` - 11 edges
-10. `moveToString()` - 10 edges
+1. `react` - 16 edges
+2. `useCubeColors()` - 16 edges
+3. `parseAlg()` - 15 edges
+4. `applyAlg()` - 15 edges
+5. `movesToString()` - 14 edges
+6. `solve()` - 14 edges
+7. `applyMoves()` - 13 edges
+8. `normalize()` - 13 edges
+9. `caseState()` - 13 edges
+10. `solved()` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `consider()` --indirect_call--> `moveToString()`  [INFERRED]
-  scripts/gen-f2l.mjs → src/lib/cube.js
-- `canon()` --calls--> `applyMoves()`  [EXTRACTED]
   scripts/gen-f2l.mjs → src/lib/cube.js
 - `simplify()` --indirect_call--> `moveToString()`  [INFERRED]
   scripts/gen-f2l.mjs → src/lib/cube.js
@@ -52,79 +56,97 @@
   scripts/verify.mjs → src/lib/cube.js
 - `checkF2L()` --calls--> `caseState()`  [EXTRACTED]
   scripts/verify.mjs → src/lib/cube.js
+- `canon()` --calls--> `applyMoves()`  [EXTRACTED]
+  scripts/gen-f2l.mjs → src/lib/cube.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (14 total, 1 thin omitted)
+## Communities (27 total, 3 thin omitted)
 
-### Community 0 - "cube.js"
-Cohesion: 0.10
-Nodes (28): FirstTwoLayers(), isLLPiece(), LastLayer(), PAIR, VIEW, cell(), CENTER, FACES (+20 more)
+### Community 0 - "lib/cube.js"
+Cohesion: 0.11
+Nodes (25): FirstTwoLayers(), isLLPiece(), LastLayer(), PAIR, VIEW, cell(), CENTER, FACES (+17 more)
 
 ### Community 1 - "gen-f2l.mjs"
-Cohesion: 0.08
-Nodes (22): adv, AUF, best, canon(), cases, consider(), cornerIds, cubeEdge (+14 more)
+Cohesion: 0.07
+Nodes (40): adv, AUF, best, canon(), cases, consider(), cornerIds, cubeEdge (+32 more)
 
 ### Community 2 - "scripts"
-Cohesion: 0.08
-Nodes (24): cubing, dependencies, cubing, @phosphor-icons/react, react, react-dom, react-router-dom, name (+16 more)
+Cohesion: 0.07
+Nodes (26): oxlint, devDependencies, oxlint, playwright-core, @types/react, @types/react-dom, vite, @vitejs/plugin-react (+18 more)
 
-### Community 3 - "solve.js"
-Cohesion: 0.15
-Nodes (19): AXIS, CROSS, distTable(), enc(), FACES, homeIdsByPos, idaSolve(), IDENTITY (+11 more)
+### Community 3 - "App.jsx"
+Cohesion: 0.13
+Nodes (18): App(), defaultThemeSlug, themes, NOTATION, TIPS, SETS, aoN(), CubeTimer() (+10 more)
 
-### Community 4 - "recognize.js"
-Cohesion: 0.18
-Nodes (24): checkAlts(), checkF2L(), dedup(), f2lData, OLL, PLL, applyAlg(), caseState() (+16 more)
+### Community 4 - "solve.js"
+Cohesion: 0.07
+Nodes (57): cornerPos, corrupt, cr, cs, FACES, good, N, checkAlts() (+49 more)
 
-### Community 5 - "App.jsx"
-Cohesion: 0.12
-Nodes (25): react, App(), CaseCard(), CaseGrid(), NOTATION, TIPS, ALL_CASES, findCase() (+17 more)
+### Community 5 - "CasePage.jsx"
+Cohesion: 0.13
+Nodes (23): CaseCard(), CaseGrid(), ALL_CASES, findCase(), emit(), NEXT, setStatus(), state (+15 more)
 
-### Community 7 - "devDependencies"
-Cohesion: 0.15
-Nodes (13): oxlint, devDependencies, oxlint, playwright-core, @types/react, @types/react-dom, vite, @vitejs/plugin-react (+5 more)
+### Community 7 - "dependencies"
+Cohesion: 0.11
+Nodes (19): @astryxdesign/cli, @astryxdesign/core, @astryxdesign/theme-neutral, cubing, dependencies, @astryxdesign/cli, @astryxdesign/core, @astryxdesign/theme-neutral (+11 more)
 
 ### Community 8 - ".oxlintrc.json"
 Cohesion: 0.25
 Nodes (7): plugins, rules, react/only-export-components, react/rules-of-hooks, $schema, oxc, warn
 
 ### Community 9 - "Solve.jsx"
-Cohesion: 0.16
-Nodes (25): MIRROR, simplify(), CubePlayer(), LONGITUDE, MASKS, SPEEDS, applyMoves(), caseFromAlg() (+17 more)
+Cohesion: 0.12
+Nodes (22): react, BootLoader(), CubeColorSettings(), LONGITUDE, MASKS, SPEEDS, NetEditor(), FACES (+14 more)
 
 ### Community 10 - "Layer by Layer"
-Cohesion: 0.50
-Nodes (3): How it fits together, Layer by Layer, Run it
+Cohesion: 0.17
+Nodes (11): Contents, Data model, Deployment, Features, How it fits together, Layer by Layer, Project layout, Running it (+3 more)
 
 ### Community 12 - "Hands.jsx"
 Cohesion: 0.31
 Nodes (7): ALL, FINGERS, Hands(), describeFingers(), FINGER_NAMES, fingersFor(), MAP
 
-### Community 13 - "solve-check.mjs"
-Cohesion: 0.22
-Nodes (7): cornerPos, corrupt, cr, cs, FACES, good, N
+### Community 13 - "cube.settings.ts"
+Cohesion: 0.47
+Nodes (3): cubeSettings, cubeTheme, cubePaletteRefs
+
+### Community 14 - "src/themes/cube/cube.variants.d.ts"
+Cohesion: 0.40
+Nodes (4): @astryxdesign/core/Badge, @astryxdesign/core/ProgressBar, BadgeVariantMap, ProgressBarVariantMap
+
+### Community 15 - "themes/cube/cube.variants.d.ts"
+Cohesion: 0.40
+Nodes (4): @astryxdesign/core/Badge, @astryxdesign/core/ProgressBar, BadgeVariantMap, ProgressBarVariantMap
+
+### Community 16 - "responsive-check.mjs"
+Cohesion: 0.50
+Nodes (3): errors, routes, widths
+
+### Community 17 - "cube.palette.ts"
+Cohesion: 0.50
+Nodes (3): black, palette, white
 
 ## Knowledge Gaps
-- **95 isolated node(s):** `$schema`, `oxc`, `react/rules-of-hooks`, `warn`, `name` (+90 more)
+- **136 isolated node(s):** `$schema`, `oxc`, `react/rules-of-hooks`, `warn`, `name` (+131 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `App.jsx` to `.oxlintrc.json`, `cube.js`, `Solve.jsx`?**
-  _High betweenness centrality (0.093) - this node is a cross-community bridge._
-- **Why does `plugins` connect `.oxlintrc.json` to `App.jsx`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
-- **Why does `parseAlg()` connect `Solve.jsx` to `cube.js`, `gen-f2l.mjs`, `solve.js`, `recognize.js`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+- **Why does `react` connect `Solve.jsx` to `lib/cube.js`, `gen-f2l.mjs`, `App.jsx`, `CasePage.jsx`, `.oxlintrc.json`?**
+  _High betweenness centrality (0.090) - this node is a cross-community bridge._
+- **Why does `plugins` connect `.oxlintrc.json` to `Solve.jsx`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `parseAlg()` connect `gen-f2l.mjs` to `lib/cube.js`, `Solve.jsx`, `solve.js`?**
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+- **Are the 2 inferred relationships involving `useCubeColors()` (e.g. with `getCubeColors()` and `subscribeCubeColors()`) actually correct?**
+  _`useCubeColors()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `$schema`, `oxc`, `react/rules-of-hooks` to the rest of the system?**
-  _95 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `cube.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.09659090909090909 - nodes in this community are weakly interconnected._
+  _136 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `lib/cube.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.10591133004926108 - nodes in this community are weakly interconnected._
 - **Should `gen-f2l.mjs` be split into smaller, more focused modules?**
-  _Cohesion score 0.08262108262108261 - nodes in this community are weakly interconnected._
-- **Should `scripts` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07246376811594203 - nodes in this community are weakly interconnected._

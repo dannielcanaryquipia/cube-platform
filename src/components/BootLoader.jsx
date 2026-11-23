@@ -88,8 +88,8 @@ export default function BootLoader({ onDone }) {
     const onTime = (info) => { if (info.atEnd) setTimeout(finish, 250); };
     model.detailedTimelineInfo.addFreshListener(onTime);
 
-    const startTimer = setTimeout(() => p.play(), 300);
-    const fallback = setTimeout(finish, 2400);
+    const startTimer = setTimeout(() => p.play(), 100);
+    const fallback = setTimeout(finish, 900);
 
     return () => {
       clearTimeout(startTimer);
@@ -101,10 +101,10 @@ export default function BootLoader({ onDone }) {
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "#f5f3ee", fontFamily: "Rubik,system-ui,-apple-system,Segoe UI,Roboto,sans-serif" }}>
+    <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "var(--bg, #f5f3ee)", fontFamily: "Rubik,system-ui,-apple-system,Segoe UI,Roboto,sans-serif" }}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }} role="status" aria-label="Loading">
         <div ref={host} style={{ width: 180, height: 180 }} />
-        <span style={{ fontSize: 13, fontWeight: 600, color: "#646b75", letterSpacing: ".01em" }}>Solving…</span>
+        <span style={{ fontSize: 13, fontWeight: 600, color: "var(--muted, #646b75)", letterSpacing: ".01em" }}>Solving…</span>
       </div>
     </div>
   );

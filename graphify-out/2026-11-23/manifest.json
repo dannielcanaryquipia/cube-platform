@@ -1,7 +1,7 @@
 {
   ".claude/settings.local.json": {
-    "mtime": 1795353204.432834,
-    "ast_hash": "40934e5fcc71dc6d9e05d2c431a04192",
+    "mtime": 1795383378.722291,
+    "ast_hash": "68bc293f69af0432a64297516500f607",
     "semantic_hash": ""
   },
   ".oxlintrc.json": {
@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1795362691.5568488,
-    "ast_hash": "02ec868da9c4591aa0b75947844fdd07",
+    "mtime": 1795394640.9948046,
+    "ast_hash": "61e7fbe4354ddb194daf9c8c15d1c946",
     "semantic_hash": ""
   },
   "scripts/gen-f2l.mjs": {
@@ -25,28 +25,28 @@
     "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1795362745.6767232,
-    "ast_hash": "d84bc50f4e33a90b4a9f33c1ce2e37c6",
+    "mtime": 1795414384.8460836,
+    "ast_hash": "37d84c96f8a8afa777ffaaa048a909b1",
     "semantic_hash": ""
   },
   "src/components/CaseCard.jsx": {
-    "mtime": 1795352891.6582825,
-    "ast_hash": "3c178c8bc0f9a991084019d96aa1d9a9",
+    "mtime": 1795413075.5586703,
+    "ast_hash": "9a24ceac5580325faf91d7929aa9bc88",
     "semantic_hash": ""
   },
   "src/components/CaseGrid.jsx": {
-    "mtime": 1795352891.6656487,
-    "ast_hash": "d471ec620acb92e1b05a0934c7d7adf9",
+    "mtime": 1795397143.993565,
+    "ast_hash": "a7e16b9ca17769e85b89d04d9771e1f6",
     "semantic_hash": ""
   },
   "src/components/CaseImage.jsx": {
-    "mtime": 1795356488.026191,
-    "ast_hash": "4a7a251427a78da324815100eef37615",
+    "mtime": 1795412049.4167583,
+    "ast_hash": "bc5ea7618c211f6be2292d3190f6dcb8",
     "semantic_hash": ""
   },
   "src/components/CubePlayer.jsx": {
-    "mtime": 1795362765.6288092,
-    "ast_hash": "9a0d39e56dc27ab36638dc3677de6214",
+    "mtime": 1795414443.1498907,
+    "ast_hash": "fafce49035221d8ec2fc183783f70999",
     "semantic_hash": ""
   },
   "src/data/f2l.json": {
@@ -55,8 +55,8 @@
     "semantic_hash": ""
   },
   "src/data/ll.js": {
-    "mtime": 1795358989.0193093,
-    "ast_hash": "7de84368be5e10ebe007cb12f5fd1720",
+    "mtime": 1795403147.8643737,
+    "ast_hash": "d85452d1a9a97315b5f86c8ac8b0c529",
     "semantic_hash": ""
   },
   "src/data/notation.js": {
@@ -65,8 +65,8 @@
     "semantic_hash": ""
   },
   "src/data/sets.js": {
-    "mtime": 1795362164.8829086,
-    "ast_hash": "6ece36c7cacf7b268c73dbc1c5c956ff",
+    "mtime": 1795401978.86048,
+    "ast_hash": "2072f8eb1af43a5144d6cf141ea3c9a9",
     "semantic_hash": ""
   },
   "src/lib/cube.js": {
@@ -85,33 +85,33 @@
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1795352891.6461868,
-    "ast_hash": "e13723e2574429d9a6d849727e3ff695",
+    "mtime": 1795414395.2254913,
+    "ast_hash": "cad3970327731110c324e6d392178202",
     "semantic_hash": ""
   },
   "src/pages/AlgSet.jsx": {
-    "mtime": 1795359247.3132033,
-    "ast_hash": "3a322b8ed4081d99da22ebdc4c1761c3",
+    "mtime": 1795413111.9841046,
+    "ast_hash": "5886b38134b7168f33a83d32e4fc20d3",
     "semantic_hash": ""
   },
   "src/pages/CasePage.jsx": {
-    "mtime": 1795382499.8806238,
-    "ast_hash": "f7f45234dbbff4525bed9670a0b02c8b",
+    "mtime": 1795413161.7311807,
+    "ast_hash": "aaef301bbf40738a0294ff6e6d3eaded",
     "semantic_hash": ""
   },
   "src/pages/Home.jsx": {
-    "mtime": 1795362878.5330412,
-    "ast_hash": "39e130558500f0d5e81f790622379a88",
+    "mtime": 1795398767.4410298,
+    "ast_hash": "6b096aabdc13eabaa3c55463313ac28b",
     "semantic_hash": ""
   },
   "src/pages/Notation.jsx": {
-    "mtime": 1795382434.025615,
-    "ast_hash": "66130a1c42483b55cfe590abfe3429c5",
+    "mtime": 1795404964.7778397,
+    "ast_hash": "05ff5810fc81ed0600a3cd4b14b07c48",
     "semantic_hash": ""
   },
   "src/pages/Search.jsx": {
-    "mtime": 1795352891.7879648,
-    "ast_hash": "9c914d399a23f798beedcafeab1820a0",
+    "mtime": 1795395850.540249,
+    "ast_hash": "031f64a72d6c0ea248d84a2bc595cbbd",
     "semantic_hash": ""
   },
   "vite.config.js": {
@@ -120,13 +120,13 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1795361586.2931495,
-    "ast_hash": "febe0353b1644e5b6d02020c8573a187",
+    "mtime": 1795386976.121628,
+    "ast_hash": "36fe056d25b3ce6c008ee8b18fe7e7e3",
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1795352891.5541012,
-    "ast_hash": "ea515c5cf2fbf2768da6a02824e08314",
+    "mtime": 1795414422.8698745,
+    "ast_hash": "7f55f61b55a34b100192158bed930c38",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
@@ -140,18 +140,18 @@
     "semantic_hash": ""
   },
   "scripts/ui-check.mjs": {
-    "mtime": 1795382755.823535,
-    "ast_hash": "1917fe483bba10ce28498453e71a1d2b",
+    "mtime": 1795399168.9626923,
+    "ast_hash": "f595dc65f3e867076bad26a4c904907b",
     "semantic_hash": ""
   },
   "src/components/NetEditor.jsx": {
-    "mtime": 1795356564.536922,
-    "ast_hash": "df00826a9bd12c26aae30fb61035655f",
+    "mtime": 1795412061.8507895,
+    "ast_hash": "a93921a4d7e1fff428bc145c03020018",
     "semantic_hash": ""
   },
   "src/data/colors.js": {
-    "mtime": 1795356462.946769,
-    "ast_hash": "7882ec1d150b3c2f4b74c9665b124480",
+    "mtime": 1795413534.3150702,
+    "ast_hash": "9d3d5e5782163162d1aa84b02fb9b323",
     "semantic_hash": ""
   },
   "src/lib/recognize.js": {
@@ -165,23 +165,188 @@
     "semantic_hash": ""
   },
   "src/pages/Solve.jsx": {
-    "mtime": 1795382529.7126734,
-    "ast_hash": "783aa8e8a106b9b15156b2780da01bbf",
+    "mtime": 1795412190.795213,
+    "ast_hash": "8a4a1a4ce855d0c6e7a0c7a1ed13b46f",
     "semantic_hash": ""
   },
   "src/pages/Cross.jsx": {
-    "mtime": 1795382514.3151634,
-    "ast_hash": "318ef44e0d0e9ce47dc31d8f2cfd3ef3",
+    "mtime": 1795404319.3027234,
+    "ast_hash": "987df72be5cdfa7b77a901048e61d258",
     "semantic_hash": ""
   },
   "src/components/Hands.jsx": {
-    "mtime": 1795361259.481042,
-    "ast_hash": "5cdb96b9df1c5fda790244c570e1faac",
+    "mtime": 1795397872.6643035,
+    "ast_hash": "41d217b05378b99d0e318fcafcc60e61",
     "semantic_hash": ""
   },
   "src/data/fingers.js": {
     "mtime": 1795361218.8947434,
     "ast_hash": "84958a0547044a88ff3da56361458509",
+    "semantic_hash": ""
+  },
+  "scripts/responsive-check.mjs": {
+    "mtime": 1795400863.6904416,
+    "ast_hash": "d0f90eda2fddb74739cc4514d0158f3e",
+    "semantic_hash": ""
+  },
+  "src/astryx-themes.js": {
+    "mtime": 1795394666.9903727,
+    "ast_hash": "7050e0afb0262ccf1cb58f86da7c09c6",
+    "semantic_hash": ""
+  },
+  "src/components/BootLoader.jsx": {
+    "mtime": 1795414490.9402022,
+    "ast_hash": "56956737f9dad7c1e0ff083a6a0ce856",
+    "semantic_hash": ""
+  },
+  "src/components/CubeColorSettings.jsx": {
+    "mtime": 1795412147.52579,
+    "ast_hash": "d3f6c02cc11245646f5c1d0476bf9511",
+    "semantic_hash": ""
+  },
+  "src/components/RubiksLoader.jsx": {
+    "mtime": 1795413546.237294,
+    "ast_hash": "ae256a35d16ddbdb2941b6718df16a60",
+    "semantic_hash": ""
+  },
+  "src/lib/cubeColors.js": {
+    "mtime": 1795413534.3150702,
+    "ast_hash": "6333104be297581edfd59b7b49ac1b0c",
+    "semantic_hash": ""
+  },
+  "src/lib/stars.js": {
+    "mtime": 1795413012.9927263,
+    "ast_hash": "21f8adc397585c282bc455aa9e8e7f33",
+    "semantic_hash": ""
+  },
+  "src/pages/CubeTimer.jsx": {
+    "mtime": 1795406264.9673698,
+    "ast_hash": "3c6c61f59a1d196a2c0ced66fe4be74b",
+    "semantic_hash": ""
+  },
+  "src/themes/cube/cube.css.d.ts": {
+    "mtime": 1795394210.724086,
+    "ast_hash": "af1e92f2ac50d0dee95cf44eede611ed",
+    "semantic_hash": ""
+  },
+  "src/themes/cube/cube.d.ts": {
+    "mtime": 1795394210.733186,
+    "ast_hash": "5664f00a68458528581f880f8eaab060",
+    "semantic_hash": ""
+  },
+  "src/themes/cube/cube.js": {
+    "mtime": 1795410762.9545348,
+    "ast_hash": "e4bb18297d2de43bfbbd26f676f29d7a",
+    "semantic_hash": ""
+  },
+  "src/themes/cube/cube.variants.d.ts": {
+    "mtime": 1795394210.7361758,
+    "ast_hash": "1d49af10ba13ec4688fc7b2ea72b77da",
+    "semantic_hash": ""
+  },
+  "src/themes/cube/cubeTheme.doc.mjs": {
+    "mtime": 1795394210.7124422,
+    "ast_hash": "0327384b4ece1aef58b0afc3d66edbab",
+    "semantic_hash": ""
+  },
+  "src/themes/cube/cubeTheme.ts": {
+    "mtime": 1795394210.7192776,
+    "ast_hash": "80f77a56d580f7c56e68fb19692af122",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.css.d.ts": {
+    "mtime": 1795394396.216815,
+    "ast_hash": "1d4a6ae7f9c8cd3f0f647fbc52b043c7",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.d.ts": {
+    "mtime": 1795394396.219207,
+    "ast_hash": "1c69116cf907f3b986dd9429219051c5",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.history.json": {
+    "mtime": 1795394380.9943728,
+    "ast_hash": "8651e93514fc996ee2366d3bedda81cb",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.js": {
+    "mtime": 1795410788.7250578,
+    "ast_hash": "e40bf96f91b243bfd969d9be198e37aa",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.pictures.json": {
+    "mtime": 1795394308.894201,
+    "ast_hash": "1f5343031d871bf1b75bb18f286c1b55",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.settings.json": {
+    "mtime": 1795394380.9943728,
+    "ast_hash": "16742f98cc17914093a8ccaf0f86f401",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.settings.ts": {
+    "mtime": 1795394380.2834737,
+    "ast_hash": "d468bb4dbe445f1a015eb5874c22d67c",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.theme.ts": {
+    "mtime": 1795394208.9408948,
+    "ast_hash": "88091ad21074fd715c2bf398cf9fd5fd",
+    "semantic_hash": ""
+  },
+  "themes/cube/cube.variants.d.ts": {
+    "mtime": 1795394396.2200947,
+    "ast_hash": "7d4cae664389ccaa8707881b3189b525",
+    "semantic_hash": ""
+  },
+  "themes/cube/palette.config.json": {
+    "mtime": 1795394308.894201,
+    "ast_hash": "4a29d458dd91dc711fe3c4f4cb11e957",
+    "semantic_hash": ""
+  },
+  "themes/cube/tokens/cube.palette-refs.ts": {
+    "mtime": 1795394309.115466,
+    "ast_hash": "7c636719c1aff8b0f9775c48097a4927",
+    "semantic_hash": ""
+  },
+  "themes/cube/tokens/cube.palette.receipt.json": {
+    "mtime": 1795394308.948926,
+    "ast_hash": "9b242469025b9d888904d676ce24c4bb",
+    "semantic_hash": ""
+  },
+  "themes/cube/tokens/cube.palette.ts": {
+    "mtime": 1795394308.9472754,
+    "ast_hash": "abdfbd4d9c181130f9a4054a3f95bd88",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1795394647.0564065,
+    "ast_hash": "b81d1902f2212d1f8d555d2ce5fcdf98",
+    "semantic_hash": ""
+  },
+  "GEMINI.md": {
+    "mtime": 1795394647.0564065,
+    "ast_hash": "86c3c12d47c10f4f46b84beaca0bdbfa",
+    "semantic_hash": ""
+  },
+  "themes/cube/preview.html": {
+    "mtime": 1795410789.0549762,
+    "ast_hash": "9514599837cbd0c8e32038e70e4122ba",
+    "semantic_hash": ""
+  },
+  "themes/cube/sheet-feedback.html": {
+    "mtime": 1795394376.897671,
+    "ast_hash": "ec7818ca85c0e0f7fd6f08567098b1db",
+    "semantic_hash": ""
+  },
+  "themes/cube/sheet-overlays.html": {
+    "mtime": 1795394376.9202008,
+    "ast_hash": "5c0df17d9eed63a849a7c9e4810ccd51",
+    "semantic_hash": ""
+  },
+  "themes/cube/sheet.html": {
+    "mtime": 1795394376.8823197,
+    "ast_hash": "b43095ee8124d78182ab6575a5867c3d",
     "semantic_hash": ""
   }
 }

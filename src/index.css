@@ -22,8 +22,28 @@
   --ease: cubic-bezier(.33, 1, .68, 1);
   color-scheme: light;
 }
+:root:not([data-theme]) {
+  color-scheme: light dark;
+}
+:root[data-theme="dark"] {
+  --bg: #12161c;
+  --surface: #1a2029;
+  --surface-2: #242c37;
+  --ink: #e8ebef;
+  --muted: #9aa3ae;
+  --line: #2d3642;
+  --accent: #52b79a;
+  --accent-ink: #0d1a16;
+  --accent-soft: #1d3a33;
+  --learning: #e5b04a;
+  --learned: #52b79a;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, .34), 0 1px 3px rgba(0, 0, 0, .3);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bg: #12161c;
     --surface: #1a2029;
     --surface-2: #242c37;
@@ -80,6 +100,8 @@ code, .mono { font-family: var(--mono); }
 .path__text { display: flex; flex-direction: column; }
 .path__text b { font-size: 14px; }
 .path__text small { color: var(--muted); font-size: 12px; }
+.side__bottom { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); }
+.path__num--icon svg { width: 14px; height: 14px; display: block; }
 
 .main { min-width: 0; }
 .top { position: sticky; top: 0; z-index: 5; padding: 14px max(32px, calc((100% - 1240px) / 2 + 32px)); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
@@ -317,6 +339,13 @@ code, .mono { font-family: var(--mono); }
 .stage__move { display: inline-flex; align-items: center; justify-content: center; min-width: 30px; height: 26px; padding: 0 7px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); font-family: var(--mono); font-size: 12.5px; }
 .stage__move--none { color: var(--muted); border-style: dashed; }
 .stage__count { margin-left: auto; font-size: 11.5px; color: var(--muted); }
+
+/* Settings */
+.settings-stack__row { padding: 12px 0; border-top: 1px solid var(--line); }
+.settings-stack__row:first-child { padding-top: 0; border-top: 0; }
+.settings-stack__row:last-child { padding-bottom: 0; }
+.settings-stack__icon { color: var(--muted); margin-top: 2px; flex: none; }
+.settings-footer { margin-top: 4px; }
 
 /* Small screens: sidebar becomes a slide-in drawer */
 @media (max-width: 900px) {

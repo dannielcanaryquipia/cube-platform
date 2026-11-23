@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "eb346bf5-2bc2-4491-b3db-375882177af5",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\Danniel Canary\\Desktop\\cube-platform\\.archify\\architecture-cube-platform-20261123-142552\\candidate.json",
+  "output": "C:\\Users\\Danniel Canary\\Desktop\\cube-platform\\.archify\\architecture-cube-platform-20261123-142552\\cube-platform-architecture.html",
+  "specification": {
+    "sha256": "63dd18c25184ec9973430a459d4a86c4605ac1c7b347e39c1032603c3251e741",
+    "bytes": 20361
+  },
+  "artifact": {
+    "sha256": "91a47185722b6b0a88d5c4728bbcdd7c47e8c5298e2b5f67ec7ad3ae15044f51",
+    "bytes": 855315
+  }
+}

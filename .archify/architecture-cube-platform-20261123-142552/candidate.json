@@ -1,0 +1,414 @@
+{
+    "schema_version":  1,
+    "diagram_type":  "architecture",
+    "meta":  {
+                 "title":  "Layer by Layer â€” Cube Platform Architecture",
+                 "subtitle":  "React + Vite CFOP learning app: routes, UI, domain data, cube engine, and browser persistence",
+                 "output":  ".archify/architecture-cube-platform-20261123-142552/cube-platform-architecture.html",
+                 "quality_profile":  "showcase",
+                 "repository":  {
+                                    "url":  "https://github.com/dannielcanaryquipia/cube-platform.git",
+                                    "revision":  "44b691b590669a34a35f9cf3fdb2d2616fff1ae2"
+                                }
+             },
+    "components":  [
+                       {
+                           "id":  "learner",
+                           "type":  "external",
+                           "label":  "Learner",
+                           "sublabel":  "Browser / Mobile web",
+                           "icon":  "person",
+                           "pos":  [
+                                       40,
+                                       250
+                                   ],
+                           "size":  [
+                                        130,
+                                        64
+                                    ]
+                       },
+                       {
+                           "id":  "app-shell",
+                           "type":  "frontend",
+                           "label":  "App Shell",
+                           "sublabel":  "BootLoader, Theme, HashRouter, Sidebar",
+                           "pos":  [
+                                       230,
+                                       250
+                                   ],
+                           "size":  [
+                                        170,
+                                        72
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/main.jsx",
+                                               "line":  1,
+                                               "end_line":  12
+                                           },
+                                           {
+                                               "path":  "src/App.jsx",
+                                               "line":  1,
+                                               "end_line":  120
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "pages",
+                           "type":  "frontend",
+                           "label":  "Route Pages",
+                           "sublabel":  "Home, Notation, Cross, Sets, Search, Solve, Timer, Settings",
+                           "pos":  [
+                                       470,
+                                       250
+                                   ],
+                           "size":  [
+                                        230,
+                                        72
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/pages/Home.jsx",
+                                               "line":  1,
+                                               "end_line":  83
+                                           },
+                                           {
+                                               "path":  "src/pages/Solve.jsx",
+                                               "line":  1,
+                                               "end_line":  175
+                                           },
+                                           {
+                                               "path":  "src/pages/CubeTimer.jsx",
+                                               "line":  1,
+                                               "end_line":  287
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "ui-components",
+                           "type":  "frontend",
+                           "label":  "UI Components",
+                           "sublabel":  "CubePlayer, CaseImage, NetEditor, Hands, Cards",
+                           "pos":  [
+                                       730,
+                                       250
+                                   ],
+                           "size":  [
+                                        180,
+                                        72
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/components/CubePlayer.jsx",
+                                               "line":  1,
+                                               "end_line":  280
+                                           },
+                                           {
+                                               "path":  "src/components/CaseImage.jsx",
+                                               "line":  1,
+                                               "end_line":  99
+                                           },
+                                           {
+                                               "path":  "src/components/NetEditor.jsx",
+                                               "line":  1,
+                                               "end_line":  47
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "domain-data",
+                           "type":  "backend",
+                           "label":  "Domain Data",
+                           "sublabel":  "SETS, OLL/PLL, F2L, notation, fingers, colors",
+                           "pos":  [
+                                       470,
+                                       110
+                                   ],
+                           "size":  [
+                                        180,
+                                        68
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/data/sets.js",
+                                               "line":  1,
+                                               "end_line":  43
+                                           },
+                                           {
+                                               "path":  "src/data/ll.js",
+                                               "line":  1,
+                                               "end_line":  113
+                                           },
+                                           {
+                                               "path":  "src/data/notation.js",
+                                               "line":  1,
+                                               "end_line":  98
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "cube-engine",
+                           "type":  "backend",
+                           "label":  "Cube Engine",
+                           "sublabel":  "cube simulator, recognize, solve, search",
+                           "pos":  [
+                                       730,
+                                       110
+                                   ],
+                           "size":  [
+                                        180,
+                                        68
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/lib/cube.js",
+                                               "line":  1,
+                                               "end_line":  104
+                                           },
+                                           {
+                                               "path":  "src/lib/recognize.js",
+                                               "line":  1,
+                                               "end_line":  53
+                                           },
+                                           {
+                                               "path":  "src/lib/solve.js",
+                                               "line":  1,
+                                               "end_line":  215
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "browser-storage",
+                           "type":  "database",
+                           "label":  "Browser Storage",
+                           "sublabel":  "localStorage: progress, stars, colors, timer, theme mode",
+                           "pos":  [
+                                       730,
+                                       390
+                                   ],
+                           "size":  [
+                                        220,
+                                        64
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/lib/progress.js",
+                                               "line":  1,
+                                               "end_line":  19
+                                           },
+                                           {
+                                               "path":  "src/lib/stars.js",
+                                               "line":  1,
+                                               "end_line":  24
+                                           },
+                                           {
+                                               "path":  "src/lib/cubeColors.js",
+                                               "line":  1,
+                                               "end_line":  46
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "cubing-js",
+                           "type":  "external",
+                           "label":  "cubing.js",
+                           "sublabel":  "TwistyPlayer 3D playback",
+                           "pos":  [
+                                       980,
+                                       250
+                                   ],
+                           "size":  [
+                                        150,
+                                        64
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/components/CubePlayer.jsx",
+                                               "line":  1,
+                                               "end_line":  11
+                                           },
+                                           {
+                                               "path":  "package.json",
+                                               "line":  16,
+                                               "end_line":  26
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "astryx",
+                           "type":  "external",
+                           "label":  "Astryx Design",
+                           "sublabel":  "Theme, UI primitives, tokens",
+                           "pos":  [
+                                       230,
+                                       10
+                                   ],
+                           "size":  [
+                                        150,
+                                        64
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "src/main.jsx",
+                                               "line":  3,
+                                               "end_line":  5
+                                           },
+                                           {
+                                               "path":  "src/App.jsx",
+                                               "line":  2,
+                                               "end_line":  8
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "verify-scripts",
+                           "type":  "backend",
+                           "label":  "Verification Scripts",
+                           "sublabel":  "verify, solve-check, ui-check, gen-f2l",
+                           "pos":  [
+                                       730,
+                                       500
+                                   ],
+                           "size":  [
+                                        180,
+                                        64
+                                    ],
+                           "sources":  [
+                                           {
+                                               "path":  "scripts/verify.mjs",
+                                               "line":  1,
+                                               "end_line":  40
+                                           },
+                                           {
+                                               "path":  "scripts/solve-check.mjs",
+                                               "line":  1,
+                                               "end_line":  40
+                                           },
+                                           {
+                                               "path":  "package.json",
+                                               "line":  6,
+                                               "end_line":  15
+                                           }
+                                       ]
+                       }
+                   ],
+    "boundaries":  [
+                       {
+                           "kind":  "region",
+                           "label":  "Browser Runtime (Static SPA)",
+                           "wraps":  [
+                                         "app-shell",
+                                         "pages",
+                                         "ui-components",
+                                         "domain-data",
+                                         "cube-engine",
+                                         "browser-storage"
+                                     ]
+                       }
+                   ],
+    "connections":  [
+                        {
+                            "id":  "learner-shell",
+                            "from":  "learner",
+                            "to":  "app-shell",
+                            "label":  "navigates / interacts",
+                            "variant":  "emphasis"
+                        },
+                        {
+                            "id":  "shell-pages",
+                            "from":  "app-shell",
+                            "to":  "pages",
+                            "label":  "HashRouter routes"
+                        },
+                        {
+                            "id":  "pages-components",
+                            "from":  "pages",
+                            "to":  "ui-components",
+                            "label":  "render"
+                        },
+                        {
+                            "id":  "shell-astryx",
+                            "from":  "astryx",
+                            "to":  "app-shell",
+                            "label":  "theme + primitives",
+                            "fromSide":  "bottom",
+                            "toSide":  "top"
+                        },
+                        {
+                            "id":  "pages-data",
+                            "from":  "domain-data",
+                            "to":  "pages",
+                            "label":  "cases, sets, notation",
+                            "fromSide":  "bottom",
+                            "toSide":  "top"
+                        },
+                        {
+                            "id":  "components-engine",
+                            "from":  "cube-engine",
+                            "to":  "ui-components",
+                            "label":  "state, parse, solve",
+                            "fromSide":  "bottom",
+                            "toSide":  "top"
+                        },
+                        {
+                            "id":  "data-engine",
+                            "from":  "domain-data",
+                            "to":  "cube-engine",
+                            "label":  "algs \u0026 cases",
+                            "fromSide":  "right",
+                            "toSide":  "left"
+                        },
+                        {
+                            "id":  "components-storage",
+                            "from":  "ui-components",
+                            "to":  "browser-storage",
+                            "label":  "progress/stars/colors",
+                            "variant":  "dashed",
+                            "fromSide":  "bottom",
+                            "toSide":  "top"
+                        },
+                        {
+                            "id":  "components-cubing",
+                            "from":  "ui-components",
+                            "to":  "cubing-js",
+                            "label":  "3D player API"
+                        },
+                        {
+                            "id":  "scripts-engine",
+                            "from":  "verify-scripts",
+                            "to":  "cube-engine",
+                            "label":  "verify \u0026 generate",
+                            "variant":  "dashed",
+                            "fromSide":  "top",
+                            "toSide":  "bottom"
+                        }
+                    ],
+    "cards":  [
+                  {
+                      "dot":  "cyan",
+                      "title":  "Frontend",
+                      "items":  [
+                                    "React 19 + Vite 8 static SPA",
+                                    "Hash routing for static hosting",
+                                    "Astryx design system + custom cube theme"
+                                ]
+                  },
+                  {
+                      "dot":  "emerald",
+                      "title":  "Cube Domain",
+                      "items":  [
+                                    "Sticker-level 3x3 simulator is ground truth",
+                                    "IDA* cross/F2L solver, OLL/PLL from verified sets",
+                                    "Recognition diagrams generated from cube state"
+                                ]
+                  },
+                  {
+                      "dot":  "amber",
+                      "title":  "Persistence",
+                      "items":  [
+                                    "localStorage: progress, stars, cube colors, timer history",
+                                    "No backend; all state client-side"
+                                ]
+                  }
+              ]
+}

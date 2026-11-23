@@ -7,9 +7,10 @@ import { Text } from "@astryxdesign/core/Text";
 import { Icon } from "@astryxdesign/core/Icon";
 import { themes, defaultThemeSlug } from "./astryx-themes.js";
 import { useEffect, useRef, useState } from "react";
-import { MagnifyingGlass, List, X } from "@phosphor-icons/react";
+import { MagnifyingGlass, List, X, GearSix } from "@phosphor-icons/react";
 import { SETS } from "./data/sets.js";
 import BootLoader from "./components/BootLoader.jsx";
+import { useThemeMode } from "./lib/themeMode.js";
 import Home from "./pages/Home.jsx";
 import Notation from "./pages/Notation.jsx";
 import Cross from "./pages/Cross.jsx";
@@ -18,6 +19,7 @@ import Search from "./pages/Search.jsx";
 import CasePage from "./pages/CasePage.jsx";
 import Solve from "./pages/Solve.jsx";
 import CubeTimer from "./pages/CubeTimer.jsx";
+import Settings from "./pages/Settings.jsx";
 
 function SearchBox() {
   const nav = useNavigate();
@@ -81,6 +83,14 @@ function Shell() {
             </NavLink>
           ))}
         </nav>
+        <VStack className="side__bottom">
+          <NavLink to="/settings" className="path__item">
+            <Text as="span" className="path__num path__num--icon" aria-hidden="true">
+              <Icon icon={GearSix} size="sm" />
+            </Text>
+            <Text as="span" className="path__text"><b>Settings</b><small>About &amp; info</small></Text>
+          </NavLink>
+        </VStack>
       </VStack>
       {navOpen && <VStack className="scrim" onClick={() => setNavOpen(false)} aria-hidden="true" />}
       <VStack className="main">
@@ -100,6 +110,7 @@ function Shell() {
             <Route path="/timer" element={<CubeTimer />} />
             <Route path="/search" element={<Search />} />
             <Route path="/case/:id" element={<CasePage />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </main>
@@ -110,8 +121,9 @@ function Shell() {
 
 export default function App() {
   const [booted, setBooted] = useState(false);
+  const mode = useThemeMode();
   return (
-    <Theme theme={themes[defaultThemeSlug]}>
+    <Theme theme={themes[defaultThemeSlug]} mode={mode}>
       <LinkProvider component={Link}>
         {booted ? <HashRouter><Shell /></HashRouter> : <BootLoader onDone={() => setBooted(true)} />}
       </LinkProvider>
