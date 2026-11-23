@@ -89,7 +89,7 @@ export default function BootLoader({ onDone }) {
     model.detailedTimelineInfo.addFreshListener(onTime);
 
     const startTimer = setTimeout(() => p.play(), 100);
-    const fallback = setTimeout(finish, 900);
+    const fallback = setTimeout(finish, 5000);
 
     return () => {
       clearTimeout(startTimer);
