@@ -1,6 +1,6 @@
 import { VStack } from "@astryxdesign/core/Stack";
 import { slotAt } from "../lib/cube.js";
-import { COLORS } from "../data/colors.js";
+import { useCubeColors } from "../lib/cubeColors.js";
 
 // Map each cell of an unfolded net to its cube sticker (SLOTS index). Centres are fixed.
 // Net layout:   U
@@ -21,6 +21,7 @@ const GRID = Object.fromEntries(FACES.map((f) => [f, [0, 1, 2].flatMap((r) => [0
 const CENTER = Object.fromEntries(FACES.map((f) => [f, GRID[f][4]]));
 
 export default function NetEditor({ color, onPaint }) {
+  const COLORS = useCubeColors();
   return (
     <VStack className="net" role="group" aria-label="Cube net — click a sticker to paint it">
       {FACES.map((f) => (

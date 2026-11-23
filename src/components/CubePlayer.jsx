@@ -6,6 +6,7 @@ import { Text } from "@astryxdesign/core/Text";
 import { Icon } from "@astryxdesign/core/Icon";
 import { SkipBack, CaretLeft, CaretRight, Play, Pause } from "@phosphor-icons/react";
 import { parseAlg, moveToString } from "../lib/cube.js";
+import { useCubeColors } from "../lib/cubeColors.js";
 import Hands from "./Hands.jsx";
 
 const SPEEDS = [0.5, 1, 2, 3, 5, 10];
@@ -24,7 +25,46 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
   const [playing, setPlaying] = useState(false);
   const [index, setIndex] = useState(0);
   const [speed, setSpeed] = useState(1);
+  const [elapsedMs, setElapsedMs] = useState(0);
+  const timerRef = useRef({ running: false, startedAt: 0, base: 0, raf: 0 });
   const moves = parseAlg(alg).map(moveToString);
+  const cubeColors = useCubeColors();
+
+  const stopTimer = useCallback(() => {
+    const t = timerRef.current;
+    if (t.running) {
+      t.base += performance.now() - t.startedAt;
+      t.running = false;
+    }
+    if (t.raf) { cancelAnimationFrame(t.raf); t.raf = 0; }
+    setElapsedMs(t.base);
+  }, []);
+
+  const tickTimerRef = useRef(() => {});
+  tickTimerRef.current = () => {
+    const t = timerRef.current;
+    if (!t.running) return;
+    setElapsedMs(t.base + (performance.now() - t.startedAt));
+    t.raf = requestAnimationFrame(tickTimerRef.current);
+  };
+
+  const startTimer = useCallback(() => {
+    const t = timerRef.current;
+    if (t.running) return;
+    t.running = true;
+    t.startedAt = performance.now();
+    if (t.raf) cancelAnimationFrame(t.raf);
+    t.raf = requestAnimationFrame(tickTimerRef.current);
+  }, []);
+
+  const resetTimer = useCallback(() => {
+    const t = timerRef.current;
+    t.running = false;
+    t.startedAt = 0;
+    t.base = 0;
+    if (t.raf) { cancelAnimationFrame(t.raf); t.raf = 0; }
+    setElapsedMs((prev) => (prev === 0 ? prev : 0));
+  }, []);
 
   let phaseLabel = null;
   if (phases && phases.length) {
@@ -32,6 +72,78 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
     for (const p of phases) { acc += p.len; if (index < acc) { phaseLabel = p.label; break; } }
     if (!phaseLabel) phaseLabel = phases[phases.length - 1].label;
   }
+
+  const applyCubeColors = useCallback((p, c) => {
+    if (!p) return;
+    const map = { U: c.U, D: c.D, F: c.F, B: c.B, L: c.L, R: c.R };
+    for (const [face, val] of Object.entries(map)) {
+      const k = face.toLowerCase();
+      p.style.setProperty(`--color-${k}`, val);
+      p.style.setProperty(`--${k}-color`, val);
+    }
+    // cubing.js 3D: setup uses z2, so cubing internal faces map to our oriented faces as U<->D, R<->L.
+    const cubingFaceToApp = { U: "D", D: "U", F: "F", B: "B", R: "L", L: "R" };
+    // SRGB values as cubing.js renders them (regular + dim). Dim stickers must be recolored too (OLL 2L, PLL masked, etc).
+    const orig = {
+      U: { regular: [0xffffff], dim: [0xefefef] },
+      L: { regular: [0xff8800, 0xffc100], dim: [0xc1aa00] },
+      F: { regular: [0x00ff00], dim: [0x00c100] },
+      R: { regular: [0xff0000], dim: [0xaa0000] },
+      B: { regular: [0x2266ff, 0x66aaff], dim: [0x497cc1] },
+      D: { regular: [0xffff00], dim: [0xc1c100] },
+    };
+    const toHex = (s) => {
+      const m = String(s).trim();
+      if (m[0] !== "#") return null;
+      const h = m.slice(1);
+      return parseInt(h.length === 3 ? h.split("").map((x) => x + x).join("") : h, 16);
+    };
+    const dimColor = (hex) => {
+      const r = (hex >> 16) & 255, g = (hex >> 8) & 255, b = hex & 255;
+      // Darken while preserving hue; keeps dimmed stickering readable with custom colors.
+      return ((Math.round(r * 0.55) << 16) | (Math.round(g * 0.55) << 8) | Math.round(b * 0.55)) >>> 0;
+    };
+    const applyToObject = (obj) => {
+      if (!obj) return;
+      obj.traverse?.((node) => {
+        const mats = node.material ? (Array.isArray(node.material) ? node.material : [node.material]) : [];
+        for (const mat of mats) {
+          if (!mat?.color || typeof mat.color.getHex !== "function") continue;
+          const hex = mat.color.getHex();
+          let cf = mat.userData?.cubingFace;
+          let kind = mat.userData?.cubingKind;
+          if (!cf || !kind) {
+            outer: for (const [face, kinds] of Object.entries(orig)) {
+              for (const [k, vals] of Object.entries(kinds)) {
+                if (vals.includes(hex)) { cf = face; kind = k; break outer; }
+              }
+            }
+          }
+          if (!cf || !kind) continue;
+          mat.userData.cubingFace = cf;
+          mat.userData.cubingKind = kind;
+          const appFace = cubingFaceToApp[cf];
+          const base = toHex(c[appFace]);
+          if (base == null) continue;
+          const next = kind === "dim" ? dimColor(base) : base;
+          if (next !== hex) { mat.color.setHex(next); mat.needsUpdate = true; }
+        }
+      });
+    };
+    const tryApply3D = async () => {
+      if (typeof p.experimentalCurrentThreeJSPuzzleObject !== "function") return;
+      for (let i = 0; i < 8; i++) {
+        try {
+          const obj = await p.experimentalCurrentThreeJSPuzzleObject();
+          applyToObject(obj);
+        } catch {}
+        await new Promise((r) => setTimeout(r, 120));
+      }
+    };
+    void tryApply3D();
+  }, []);
+
+  useEffect(() => { applyCubeColors(player.current, cubeColors); }, [cubeColors, applyCubeColors]);
 
   useEffect(() => {
     const p = new TwistyPlayer({
@@ -49,8 +161,10 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
     });
     p.style.width = "100%";
     p.style.height = "100%";
+    applyCubeColors(p, cubeColors);
     host.current.appendChild(p);
     player.current = p;
+    resetTimer();
     const model = p.experimentalModel;
     const onTime = async (info) => {
       const indexer = await model.indexer.get();
@@ -58,8 +172,13 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
       let done = 0;
       while (done < n && indexer.indexToMoveStartTimestamp(done) + indexer.moveDuration(done) <= info.timestamp) done++;
       setIndex(info.atEnd ? n : done);
+      if (info.atEnd) stopTimer();
     };
-    const onPlay = (info) => setPlaying(info.playing);
+    const onPlay = (info) => {
+      setPlaying(info.playing);
+      if (info.playing) startTimer();
+      else stopTimer();
+    };
     model.detailedTimelineInfo.addFreshListener(onTime);
     model.playingInfo.addFreshListener(onPlay);
     let loopTimer;
@@ -70,14 +189,17 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
       model.detailedTimelineInfo.addFreshListener(onEnd);
       setTimeout(() => p.play(), 400);
     }
+    const timer = timerRef.current;
     return () => {
       clearTimeout(loopTimer);
+      if (timer.raf) { cancelAnimationFrame(timer.raf); timer.raf = 0; }
       model.detailedTimelineInfo.removeFreshListener(onTime);
       model.playingInfo.removeFreshListener(onPlay);
       p.remove();
       player.current = null;
     };
-  }, [alg, stickering, anchor, autoLoop, slot, setup]);
+  // oxlint-disable-next-line react-hooks/exhaustive-deps -- speed/cubeColors are synced by dedicated effects; recreating the player on them would break playback
+  }, [alg, stickering, anchor, autoLoop, slot, setup, resetTimer, startTimer, stopTimer, applyCubeColors]);
 
   useEffect(() => { if (player.current) player.current.tempoScale = speed; }, [speed]);
 
@@ -91,12 +213,13 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
     p.pause();
     const indexer = await p.experimentalModel.indexer.get();
     const n = indexer.numAnimatedLeaves();
-    if (i >= n) { p.jumpToEnd(); return; }
+    if (i <= 0) resetTimer();
+    if (i >= n) { stopTimer(); p.jumpToEnd(); return; }
     p.experimentalModel.timestampRequest.set(indexer.indexToMoveStartTimestamp(i));
-  }, []);
+  }, [resetTimer, stopTimer]);
   const toggle = () => {
     const p = player.current; if (!p) return;
-    if (!playing && index >= moves.length) p.jumpToStart();
+    if (!playing && index >= moves.length) { resetTimer(); p.jumpToStart(); }
     p.togglePlay();
   };
 
@@ -149,7 +272,7 @@ export default function CubePlayer({ alg, stickering = "full", anchor = "end", a
             ))}
           </HStack>
         )}
-        {!compact && <Text as="span" className="counter">{index} / {moves.length}</Text>}
+        {!compact && <Text as="span" className="counter">{index} / {moves.length} · {(elapsedMs / 1000).toFixed(2)}s</Text>}
       </HStack>
       {showFingers && <Hands move={moves[index]} />}
     </VStack>

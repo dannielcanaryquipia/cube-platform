@@ -11,9 +11,10 @@ import { Icon } from "@astryxdesign/core/Icon";
 import { Cube, Shuffle, ArrowCounterClockwise, CaretRight } from "@phosphor-icons/react";
 import { solved, applyMoves, invertMoves, parseAlg, movesToString } from "../lib/cube.js";
 import { solveCube, colorsOf } from "../lib/solve.js";
-import { COLORS, FACE_NAME } from "../data/colors.js";
+import { useCubeColors, FACE_NAME } from "../lib/cubeColors.js";
 import NetEditor from "../components/NetEditor.jsx";
 import CubePlayer from "../components/CubePlayer.jsx";
+import CubeColorSettings from "../components/CubeColorSettings.jsx";
 
 const PAINTS = ["U", "F", "R", "B", "L", "D"];
 const FACES = ["U", "D", "L", "R", "F", "B"];
@@ -47,6 +48,7 @@ export default function Solve() {
   const [humanSpeed, setHumanSpeed] = useState(() => {
     try { return Number(localStorage.getItem("cube-human-speed") || 2); } catch { return 2; }
   });
+  const COLORS = useCubeColors();
 
   const apply = (loc, alg) => { setColor(colorsOf(loc)); setResult(null); setScramble(alg); };
   const onPaint = (slot) => { setResult(null); setScramble(""); setColor((c) => c.map((v, i) => (i === slot ? paint : v))); };
@@ -95,6 +97,7 @@ export default function Solve() {
             {typeErr && <Text as="span" className="note note--warn">{typeErr}</Text>}
           </form>
           {result?.error && <p className="note note--warn">{result.error}</p>}
+          <CubeColorSettings />
         </VStack>
 
         {!result?.stages && !solving && (

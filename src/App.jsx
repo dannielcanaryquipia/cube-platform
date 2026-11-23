@@ -9,6 +9,7 @@ import { themes, defaultThemeSlug } from "./astryx-themes.js";
 import { useEffect, useRef, useState } from "react";
 import { MagnifyingGlass, List, X } from "@phosphor-icons/react";
 import { SETS } from "./data/sets.js";
+import BootLoader from "./components/BootLoader.jsx";
 import Home from "./pages/Home.jsx";
 import Notation from "./pages/Notation.jsx";
 import Cross from "./pages/Cross.jsx";
@@ -108,10 +109,11 @@ function Shell() {
 }
 
 export default function App() {
+  const [booted, setBooted] = useState(false);
   return (
     <Theme theme={themes[defaultThemeSlug]}>
       <LinkProvider component={Link}>
-        <HashRouter><Shell /></HashRouter>
+        {booted ? <HashRouter><Shell /></HashRouter> : <BootLoader onDone={() => setBooted(true)} />}
       </LinkProvider>
     </Theme>
   );

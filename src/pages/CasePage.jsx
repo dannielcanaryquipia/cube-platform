@@ -6,9 +6,10 @@ import { Text } from "@astryxdesign/core/Text";
 import { Heading } from "@astryxdesign/core/Heading";
 import { Button } from "@astryxdesign/core/Button";
 import { Icon } from "@astryxdesign/core/Icon";
-import { ArrowLeft, CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { ArrowLeft, CaretLeft, CaretRight, Star } from "@phosphor-icons/react";
 import { findCase } from "../data/sets.js";
 import { setStatus, useProgress } from "../lib/progress.js";
+import { toggleStar, useStars } from "../lib/stars.js";
 import CaseImage from "../components/CaseImage.jsx";
 import CubePlayer from "../components/CubePlayer.jsx";
 
@@ -23,6 +24,7 @@ export default function CasePage() {
   const { id } = useParams();
   const loc = useLocation();
   const progress = useProgress();
+  const stars = useStars();
   const [sel, setSel] = useState(0);
   const [seenId, setSeenId] = useState(id);
   if (id !== seenId) { setSeenId(id); setSel(0); }
@@ -35,6 +37,7 @@ export default function CasePage() {
   const prev = list[i - 1], next = list[i + 1];
   const from = loc.state?.from || c.set.path;
   const status = progress[c.id];
+  const starred = !!stars[c.id];
   return (
     <VStack className="case">
       <HStack gap={4} hAlign="between" vAlign="center" className="case__nav">
@@ -49,7 +52,7 @@ export default function CasePage() {
           <Text type="supporting" color="accent">{c.set.title} · {c.group}</Text>
           <Heading level={1}>{c.name}</Heading>
           {algs.length > 1 && <Text type="supporting" color="secondary">{algs.length} algorithms available — pick one below</Text>}
-          <VStack className="case__img"><CaseImage alg={c.alg} view={c.set.view} slot={c.slot} /></VStack>
+          <VStack className="case__img"><CaseImage alg={current.alg} view={c.set.view} slot={c.slot} /></VStack>
           <Text type="supporting" color="secondary">{c.set.title} recognition pattern</Text>
 
           {algs.length > 1 ? (
@@ -68,6 +71,13 @@ export default function CasePage() {
           {c.basedOn && <Text type="body" color="secondary">Mirror of <Link to={`/case/${c.basedOn}`}>{c.basedOn.replace("f2l-", "F2L ")}</Link> for the {c.group.toLowerCase()}.</Text>}
 
           <HStack gap={1.5} wrap="wrap" className="status chips--scroll" role="group" aria-label="Your progress">
+            <Button
+              label={starred ? "Starred" : "Star"}
+              variant={starred ? "primary" : "secondary"}
+              size="sm"
+              icon={<Icon icon={Star} size="sm" weight={starred ? "fill" : "regular"} />}
+              onClick={() => toggleStar(c.id)}
+            />
             {[["", "Not started"], ["learning", "Learning"], ["learned", "Learned"]].map(([k, label]) => (
               <Button key={label} label={label} variant={(status || "") === k ? "primary" : "secondary"} size="sm" onClick={() => setStatus(c.id, k || undefined)} />
             ))}

@@ -1,10 +1,11 @@
 import { memo, useMemo } from "react";
 import { SLOTS, caseState, facelets, faceOfSlot, slotAt } from "../lib/cube.js";
-import { COLORS } from "../data/colors.js";
+import { useCubeColors } from "../lib/cubeColors.js";
 
 const isLLPiece = (id) => SLOTS[id].p[1] === 1;
 
 function LastLayer({ alg, mode }) {
+  const COLORS = useCubeColors();
   const { cells, arrows } = useMemo(() => {
     const loc = caseState(alg);
     const f = facelets(loc);
@@ -37,7 +38,7 @@ function LastLayer({ alg, mode }) {
       });
     }
     return { cells, arrows };
-  }, [alg, mode]);
+  }, [alg, mode, COLORS]);
 
   return (
     <svg viewBox="0 0 118 118" className="case-svg" role="img" aria-label="Top view of the case">
@@ -60,6 +61,7 @@ const VIEW = { FR: [1, 1], FL: [-1, 1], BR: [1, -1], BL: [-1, -1] };
 const PAIR = { FR: ["1,-1,1", "1,0,1"], FL: ["-1,-1,1", "-1,0,1"], BR: ["1,-1,-1", "1,0,-1"], BL: ["-1,-1,-1", "-1,0,-1"] };
 
 function FirstTwoLayers({ alg, slot = "FR" }) {
+  const COLORS = useCubeColors();
   const polys = useMemo(() => {
     const loc = caseState(alg);
     const f = facelets(loc);
@@ -83,7 +85,7 @@ function FirstTwoLayers({ alg, slot = "FR" }) {
       out.push({ pts: pts.map((q) => q.join(",")).join(" "), fill, dim: colored && !pair.includes(home) });
     });
     return out;
-  }, [alg, slot]);
+  }, [alg, slot, COLORS]);
   return (
     <svg viewBox="-42 -46 84 92" className="case-svg" role="img" aria-label="3D view of the F2L case">
       {polys.map((p, i) => <polygon key={i} points={p.pts} fill={p.fill} opacity={p.dim ? 0.55 : 1} stroke="rgba(0,0,0,.18)" strokeWidth=".5" strokeLinejoin="round" />)}

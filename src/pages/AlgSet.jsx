@@ -7,28 +7,34 @@ import { Button } from "@astryxdesign/core/Button";
 import { TextInput } from "@astryxdesign/core/TextInput";
 import { matchCase } from "../lib/search.js";
 import { useProgress } from "../lib/progress.js";
+import { useStars } from "../lib/stars.js";
 import CaseGrid from "../components/CaseGrid.jsx";
 
-const STATUS = [["all", "All"], ["new", "Not started"], ["learning", "Learning"], ["learned", "Learned"]];
+const STATUS = [["all", "All"], ["starred", "Starred"], ["new", "Not started"], ["learning", "Learning"], ["learned", "Learned"]];
 
 export default function AlgSet({ set }) {
   const [group, setGroup] = useState("all");
   const [status, setStatusFilter] = useState("all");
   const [q, setQ] = useState("");
   const progress = useProgress();
+  const stars = useStars();
   const cases = useMemo(() => set.cases.map((c) => ({ ...c, set })), [set]);
   const filtered = cases.filter((c) =>
     (group === "all" || c.group === group) &&
-    (status === "all" || (status === "new" ? !progress[c.id] : progress[c.id] === status)) &&
+    (status === "all" ||
+      (status === "new" ? !progress[c.id] :
+       status === "starred" ? !!stars[c.id] :
+       progress[c.id] === status)) &&
     matchCase(c, q));
   const groups = set.groups.filter((g) => group === "all" || g === group);
   const learned = cases.filter((c) => progress[c.id] === "learned").length;
+  const starredCount = cases.filter((c) => !!stars[c.id]).length;
   return (
     <VStack gap={4}>
       <VStack gap={2}>
         <Heading level={1}>{set.title} <Text as="span" color="secondary">{set.subtitle}</Text></Heading>
         <Text type="body" color="secondary">{set.intro}</Text>
-        <Text type="supporting" color="secondary">{learned} of {cases.length} learned</Text>
+        <Text type="supporting" color="secondary">{learned} of {cases.length} learned · {starredCount} starred</Text>
       </VStack>
       <VStack gap={3}>
         <TextInput label={`Filter ${set.title}`} value={q} onChange={(v) => setQ(v)} placeholder={`Filter ${set.title}`} />
@@ -45,7 +51,7 @@ export default function AlgSet({ set }) {
           <Text type="supporting" color="secondary">Show</Text>
           <HStack gap={2} wrap="wrap" className="chips--scroll">
             {STATUS.map(([k, label]) => (
-              <Button key={k} label={label} variant={status === k ? "primary" : "secondary"} size="sm" onClick={() => setStatusFilter(k)} />
+              <Button key={k} label={k === "starred" ? `${label} (${starredCount})` : label} variant={status === k ? "primary" : "secondary"} size="sm" onClick={() => setStatusFilter(k)} />
             ))}
           </HStack>
         </VStack>
