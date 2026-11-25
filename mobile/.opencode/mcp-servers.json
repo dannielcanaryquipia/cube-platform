@@ -1,0 +1,49 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "shadcn": {
+      "type": "local",
+      "command": ["npx", "shadcn@latest", "mcp"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"],
+      "enabled": true
+    },
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
+    },
+    "figma": {
+      "type": "remote",
+      "url": "https://mcp.figma.com/mcp",
+      "enabled": false,
+      "oauth": {}
+    },
+    "graphify": {
+      "type": "local",
+      "command": ["graphify-mcp", "__DOTOPENCODE__/graphify-out/graph.json"],
+      "enabled": true
+    },
+    "vengeanceui": {
+      "type": "local",
+      "command": ["node", "__USERPROFILE__/.mcp-servers/vengeanceui-mcp-official/dist/index.js"],
+      "enabled": true
+    },
+    "astryx": {
+      "type": "remote",
+      "url": "https://astryx.atmeta.com/mcp",
+      "enabled": true
+    },
+    "blender": {
+      "type": "local",
+      "command": ["uv", "--directory", "__DOTOPENCODE__/vendor/blender_mcp/mcp", "run", "blender-mcp"],
+      "environment": {
+        "BLENDER_MCP_SAFE_MODE": "1"
+      },
+      "enabled": true
+    }
+  }
+}

@@ -1,0 +1,1251 @@
+{
+ "f2l": [
+  {
+   "id": "f2l-1",
+   "current": "F' U' F",
+   "recommended": "F' U' F",
+   "alternates": [
+    "y' R' U' R"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Use the rotation version if F moves feel slow.",
+   "changed": false,
+   "scdbNumber": 3
+  },
+  {
+   "id": "f2l-2",
+   "current": "R U R'",
+   "recommended": "R U R'",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "The basic insert: right index flicks U.",
+   "changed": false,
+   "scdbNumber": 4
+  },
+  {
+   "id": "f2l-3",
+   "current": "U R U' R'",
+   "recommended": "U R U' R'",
+   "alternates": [
+    "R' F R F'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Left index does U'.",
+   "changed": false,
+   "scdbNumber": 1
+  },
+  {
+   "id": "f2l-4",
+   "current": "U' F' U F",
+   "recommended": "F R' F' R",
+   "alternates": [
+    "U' F' U F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Sledgehammer backwards, no AUF needed.",
+   "changed": true,
+   "scdbNumber": 2
+  },
+  {
+   "id": "f2l-5",
+   "current": "R' U2 R2 U R2 U R",
+   "recommended": "R' U2 R2 U R2 U R",
+   "alternates": [
+    "R U' R' U R U' R' U2 R U' R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Keep thumb on front; R2s are wrist turns.",
+   "changed": false,
+   "scdbNumber": 12
+  },
+  {
+   "id": "f2l-6",
+   "current": "R U' R' U2 F' U' F",
+   "recommended": "R U' R' U2 F' U' F",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "Push F' with left thumb after the U2 double flick.",
+   "changed": false,
+   "scdbNumber": 16
+  },
+  {
+   "id": "f2l-7",
+   "current": "F' U F U2 R U R'",
+   "recommended": "F' U F U2 R U R'",
+   "alternates": [
+    "R U R' U2 R U' R' U R U' R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "The pure R/U version avoids F if you prefer.",
+   "changed": false,
+   "scdbNumber": 15
+  },
+  {
+   "id": "f2l-8",
+   "current": "U' R U R' U2 R U' R'",
+   "recommended": "U' R U R' U2 R U' R'",
+   "alternates": [
+    "U' R U R' U' R U2 R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "All R/U; U2 as a right index + middle double flick.",
+   "changed": false,
+   "scdbNumber": 5
+  },
+  {
+   "id": "f2l-9",
+   "current": "U F' U' F U2 F' U F",
+   "recommended": "U' r U' R' U R U r'",
+   "alternates": [
+    "d R' U' R U2 R' U R",
+    "U F' U' F U2 F' U F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Wide r keeps it in R/U grip, replaces the old F' chain.",
+   "changed": true,
+   "scdbNumber": 6
+  },
+  {
+   "id": "f2l-10",
+   "current": "U' R U2 R' U2 R U' R'",
+   "recommended": "U' R U2 R' U' R U2 R'",
+   "alternates": [
+    "U' R U2 R' U2 R U' R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Two identical R U2 R' triggers.",
+   "changed": true,
+   "scdbNumber": 7
+  },
+  {
+   "id": "f2l-11",
+   "current": "U F' U2 F U2 F' U F",
+   "recommended": "r' U2 R2 U R2 U r",
+   "alternates": [
+    "d R' U2 R U R' U2 R",
+    "U F' U2 F U2 F' U F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Wide-move twin of case 5; replaces the old F' chain.",
+   "changed": true,
+   "scdbNumber": 8
+  },
+  {
+   "id": "f2l-12",
+   "current": "U' R U' R' U F' U' F",
+   "recommended": "U' R U' R' U F' U' F",
+   "alternates": [
+    "U' R U' R' d R' U' R"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "F' U' F with left thumb on F'.",
+   "changed": false,
+   "scdbNumber": 9
+  },
+  {
+   "id": "f2l-13",
+   "current": "U' R U R' U R U R'",
+   "recommended": "U' R U R' U R U R'",
+   "alternates": [
+    "U2 R U' R' U' R U R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 10
+  },
+  {
+   "id": "f2l-14",
+   "current": "U' R U2 R' U F' U' F",
+   "recommended": "U' R U2 R' U F' U' F",
+   "alternates": [
+    "U' R U2 R' d R' U' R"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false,
+   "scdbNumber": 11
+  },
+  {
+   "id": "f2l-15",
+   "current": "U F' U F U' F' U' F",
+   "recommended": "y' U R' U R U' R' U' R",
+   "alternates": [
+    "d R' U R U' R' U' R",
+    "U F' U F U' F' U' F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Rotate once, then it is a back-slot style R'/U alg.",
+   "changed": true,
+   "scdbNumber": 13
+  },
+  {
+   "id": "f2l-16",
+   "current": "U' R U' R' U R U R'",
+   "recommended": "U' R U' R' U R U R'",
+   "alternates": [
+    "U2 R2 U R' U R U2 R2"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 14
+  },
+  {
+   "id": "f2l-17",
+   "current": "F' U2 F2 R' F' R",
+   "recommended": "y' R' U2 R U' R' U R",
+   "alternates": [
+    "R U' R2 F R F' R U' R'",
+    "F' U2 F2 R' F' R"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Replaces F' U2 F2 R' F' R (F2 is slow).",
+   "changed": true,
+   "scdbNumber": 20
+  },
+  {
+   "id": "f2l-18",
+   "current": "R U R' F' U' F",
+   "recommended": "R U R' F' U' F",
+   "alternates": [
+    "U2 r U' r' U2 r U r'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Keep; the r version is the top vote but needs a U2.",
+   "changed": false,
+   "scdbNumber": 22
+  },
+  {
+   "id": "f2l-19",
+   "current": "R U2 R' U' R U R'",
+   "recommended": "R U2 R' U' R U R'",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 17
+  },
+  {
+   "id": "f2l-20",
+   "current": "F' U2 F U F' U' F",
+   "recommended": "y' R' U2 R U R' U' R",
+   "alternates": [
+    "F' U2 F U F' U' F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Rotation version avoids three F' turns.",
+   "changed": true,
+   "scdbNumber": 18
+  },
+  {
+   "id": "f2l-21",
+   "current": "F2 U2 F U F' U F2",
+   "recommended": "U2 F U R U' R' F' R U' R'",
+   "alternates": [
+    "U R U R2 F R F' R U' R'",
+    "F2 U2 F U F' U F2"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Replaces F2 U2 F U F' U F2 (F2 turns are slow).",
+   "changed": true,
+   "scdbNumber": 24
+  },
+  {
+   "id": "f2l-22",
+   "current": "U R U2 R' U R U' R'",
+   "recommended": "U R U2 R' U R U' R'",
+   "alternates": [
+    "U R U2 R2 F R F'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false,
+   "scdbNumber": 19
+  },
+  {
+   "id": "f2l-23",
+   "current": "U2 R U R' U R U' R'",
+   "recommended": "U2 R U R' U R U' R'",
+   "alternates": [
+    "R U' R' U2 R U R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false,
+   "scdbNumber": 21
+  },
+  {
+   "id": "f2l-24",
+   "current": "U2 R2 U2 R' U' R U' R2",
+   "recommended": "U2 R2 U2 R' U' R U' R2",
+   "alternates": [
+    "R U R' U2 R U R' U' R U R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "R2 moves are wrist turns; no regrip.",
+   "changed": false,
+   "scdbNumber": 23
+  },
+  {
+   "id": "f2l-25",
+   "current": "R U' R' U R U' R'",
+   "recommended": "R U' R' U R U' R'",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 27
+  },
+  {
+   "id": "f2l-26",
+   "current": "F' U F U' F' U F",
+   "recommended": "R U R' U' F R' F' R",
+   "alternates": [
+    "y L' U L U' L' U L",
+    "F' U F U' F' U F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Sexy move into reverse sledgehammer; replaces an F' chain.",
+   "changed": true,
+   "scdbNumber": 28
+  },
+  {
+   "id": "f2l-27",
+   "current": "R U R' U' R U R'",
+   "recommended": "R U R' U' R U R'",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 30
+  },
+  {
+   "id": "f2l-28",
+   "current": "F' U' F U F' U' F",
+   "recommended": "R' F R F' U R U' R'",
+   "alternates": [
+    "F' U' F U F' U' F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Sledgehammer then insert; replaces an F' chain.",
+   "changed": true,
+   "scdbNumber": 29
+  },
+  {
+   "id": "f2l-29",
+   "current": "U R U' R' U' F' U F",
+   "recommended": "U R U' R' F R' F' R",
+   "alternates": [
+    "U R U' R' U' F' U F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Ends with reverse sledgehammer.",
+   "changed": true,
+   "scdbNumber": 26
+  },
+  {
+   "id": "f2l-30",
+   "current": "U' F' U F U R U' R'",
+   "recommended": "U' R' F R F' R U R'",
+   "alternates": [
+    "U' F' U F U R U' R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Starts with sledgehammer.",
+   "changed": true,
+   "scdbNumber": 25
+  },
+  {
+   "id": "f2l-31",
+   "current": "F' U F R U2 R'",
+   "recommended": "U' R' F R F' R U' R'",
+   "alternates": [
+    "F' U F R U2 R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Sledgehammer, then R U' R'.",
+   "changed": true,
+   "scdbNumber": 31
+  },
+  {
+   "id": "f2l-32",
+   "current": "U' R U' R' U2 R U' R'",
+   "recommended": "U' R U' R' U2 R U' R'",
+   "alternates": [
+    "U' R U' R' U' R U2 R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 33
+  },
+  {
+   "id": "f2l-33",
+   "current": "U R U R' U2 R U R'",
+   "recommended": "U R U R' U2 R U R'",
+   "alternates": [
+    "U' R U2 R' U R U R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 34
+  },
+  {
+   "id": "f2l-34",
+   "current": "U' R U R' U F' U' F",
+   "recommended": "U' R U R' U F' U' F",
+   "alternates": [
+    "U' R U R' d R' U' R"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false,
+   "scdbNumber": 35
+  },
+  {
+   "id": "f2l-35",
+   "current": "U F' U' F U' R U R'",
+   "recommended": "U F' U' F U' R U R'",
+   "alternates": [
+    "U2 R' F R F' U2 R U R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false,
+   "scdbNumber": 36
+  },
+  {
+   "id": "f2l-36",
+   "current": "R U R' U' R U R' U' R U R'",
+   "recommended": "R U R' U' R U R' U' R U R'",
+   "alternates": [
+    "R2 U R2 U R2 U2 R2"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Three sexy-style triggers; the R2 version is shorter.",
+   "changed": false,
+   "scdbNumber": 32
+  },
+  {
+   "id": "f2l-37",
+   "current": "R2 U2 F R2 F' U2 R' U R'",
+   "recommended": "R2 U2 F R2 F' U2 R' U R'",
+   "alternates": [
+    "R U2 R' U R U2 R' U F' U' F"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false,
+   "scdbNumber": 37
+  },
+  {
+   "id": "f2l-38",
+   "current": "R F U R U' R' F' U' R'",
+   "recommended": "r U' r' U2 r U r' R U R'",
+   "alternates": [
+    "R F U R U' R' F' U' R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Wide-move version keeps R/U grip.",
+   "changed": true,
+   "scdbNumber": 40
+  },
+  {
+   "id": "f2l-39",
+   "current": "R U F R U R' U' F' R'",
+   "recommended": "R U' R' r U' r' U2 r U r'",
+   "alternates": [
+    "R U F R U R' U' F' R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Wide-move version keeps R/U grip.",
+   "changed": true,
+   "scdbNumber": 41
+  },
+  {
+   "id": "f2l-40",
+   "current": "R U' R' U' R U R' U2 R U' R'",
+   "recommended": "R U' R' U' R U R' U2 R U' R'",
+   "alternates": [
+    "R2 U2 R' U' R U' R' U2 R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 38
+  },
+  {
+   "id": "f2l-41",
+   "current": "R U' R' U R U2 R' U R U' R'",
+   "recommended": "R U' R' U R U2 R' U R U' R'",
+   "alternates": [
+    "R U2 R U R' U R U2 R2"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Pure R/U.",
+   "changed": false,
+   "scdbNumber": 39
+  }
+ ],
+ "oll": [
+  {
+   "id": "oll-1",
+   "current": "R U2 R2 F R F' U2 R' F R F'",
+   "recommended": "R U2 R2 F R F' U2 R' F R F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-2",
+   "current": "F R U R' U' F' f R U R' U' f'",
+   "recommended": "r U r' U2 r U2 R' U2 R U' r'",
+   "alternates": [
+    "F R U R' U' F' f R U R' U' f'"
+   ],
+   "source": "J Perm",
+   "note": "No regrips, wide r in R/U grip.",
+   "changed": true
+  },
+  {
+   "id": "oll-3",
+   "current": "f R U R' U' f' U' F R U R' U' F'",
+   "recommended": "r' R2 U R' U r U2 r' U M'",
+   "alternates": [
+    "f R U R' U' f' U' F R U R' U' F'"
+   ],
+   "source": "J Perm",
+   "note": "M' at the end with left ring finger.",
+   "changed": true
+  },
+  {
+   "id": "oll-4",
+   "current": "f R U R' U' f' U F R U R' U' F'",
+   "recommended": "M U' r U2 r' U' R U' R' M'",
+   "alternates": [
+    "f R U R' U' f' U F R U R' U' F'"
+   ],
+   "source": "J Perm",
+   "note": "Starts and ends with M slices.",
+   "changed": true
+  },
+  {
+   "id": "oll-5",
+   "current": "r' U2 R U R' U r",
+   "recommended": "r' U2 R U R' U r",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-6",
+   "current": "r U2 R' U' R U' r'",
+   "recommended": "r U2 R' U' R U' r'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-7",
+   "current": "r U R' U R U2 r'",
+   "recommended": "r U R' U R U2 r'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-8",
+   "current": "r' U' R U' R' U2 r",
+   "recommended": "r' U' R U' R' U2 r",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-9",
+   "current": "R U R' U' R' F R2 U R' U' F'",
+   "recommended": "R U R' U' R' F R2 U R' U' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-10",
+   "current": "R U R' U R' F R F' R U2 R'",
+   "recommended": "R U R' U R' F R F' R U2 R'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-11",
+   "current": "r U R' U R' F R F' R U2 r'",
+   "recommended": "r U R' U R' F R F' R U2 r'",
+   "alternates": [
+    "r' R2 U R' U R U2 R' U M'"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-12",
+   "current": "M' R' U' R U' R' U2 R U' R r'",
+   "recommended": "M' R' U' R U' R' U2 R U' R r'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-13",
+   "current": "F U R U' R2 F' R U R U' R'",
+   "recommended": "F U R U' R2 F' R U R U' R'",
+   "alternates": [
+    "r U' r' U' r U r' F' U F"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-14",
+   "current": "R' F R U R' F' R F U' F'",
+   "recommended": "R' F R U R' F' R F U' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-15",
+   "current": "r' U' r R' U' R U r' U r",
+   "recommended": "r' U' r R' U' R U r' U r",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-16",
+   "current": "r U r' R U R' U' r U' r'",
+   "recommended": "r U r' R U R' U' r U' r'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-17",
+   "current": "R U R' U R' F R F' U2 R' F R F'",
+   "recommended": "F R' F' R2 r' U R U' R' U' M'",
+   "alternates": [
+    "R U R' U R' F R F' U2 R' F R F'"
+   ],
+   "source": "J Perm",
+   "note": "Shorter than two sledgehammers.",
+   "changed": true
+  },
+  {
+   "id": "oll-18",
+   "current": "r U R' U R U2 r2 U' R U' R' U2 r",
+   "recommended": "r U R' U R U2 r2 U' R U' R' U2 r",
+   "alternates": [
+    "R U2 R2 F R F' U2 M' U R U' r'"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-19",
+   "current": "M U R U R' U' M' R' F R F'",
+   "recommended": "M U R U R' U' M' R' F R F'",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-20",
+   "current": "r U R' U' M2 U R U' R' U' M'",
+   "recommended": "r U R' U' M2 U R U' R' U' M'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-21",
+   "current": "R U2 R' U' R U R' U' R U' R'",
+   "recommended": "R U2 R' U' R U R' U' R U' R'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-22",
+   "current": "R U2 R2 U' R2 U' R2 U2 R",
+   "recommended": "R U2 R2 U' R2 U' R2 U2 R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-23",
+   "current": "R2 D' R U2 R' D R U2 R",
+   "recommended": "R2 D' R U2 R' D R U2 R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-24",
+   "current": "r U R' U' r' F R F'",
+   "recommended": "r U R' U' r' F R F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-25",
+   "current": "F' r U R' U' r' F R",
+   "recommended": "F' r U R' U' r' F R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-26",
+   "current": "R U2 R' U' R U' R'",
+   "recommended": "R U2 R' U' R U' R'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-27",
+   "current": "R U R' U R U2 R'",
+   "recommended": "R U R' U R U2 R'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-28",
+   "current": "r U R' U' M U R U' R'",
+   "recommended": "r U R' U' M U R U' R'",
+   "alternates": [],
+   "source": "SpeedCubeDB",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-29",
+   "current": "R U R' U' R U' R' F' U' F R U R'",
+   "recommended": "R U R' U' R U' R' F' U' F R U R'",
+   "alternates": [
+    "r2 D' r U r' D r2 U' r' U' r"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-30",
+   "current": "F R' F R2 U' R' U' R U R' F2",
+   "recommended": "F R' F R2 U' R' U' R U R' F2",
+   "alternates": [
+    "F U R U2 R' U' R U2 R' U' F'"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-31",
+   "current": "R' U' F U R U' R' F' R",
+   "recommended": "R' U' F U R U' R' F' R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-32",
+   "current": "R U B' U' R' U R B R'",
+   "recommended": "S R U R' U' R' F R f'",
+   "alternates": [
+    "L U F' U' L' U L F L'",
+    "R U B' U' R' U R B R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Replaces R U B' U' R' U R B R' (B moves are slow).",
+   "changed": true
+  },
+  {
+   "id": "oll-33",
+   "current": "R U R' U' R' F R F'",
+   "recommended": "R U R' U' R' F R F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-34",
+   "current": "R U R2 U' R' F R U R U' F'",
+   "recommended": "R U R2 U' R' F R U R U' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-35",
+   "current": "R U2 R2 F R F' R U2 R'",
+   "recommended": "R U2 R2 F R F' R U2 R'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-36",
+   "current": "L' U' L U' L' U L U L F' L' F",
+   "recommended": "L' U' L U' L' U L U L F' L' F",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-37",
+   "current": "F R' F' R U R U' R'",
+   "recommended": "F R' F' R U R U' R'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-38",
+   "current": "R U R' U R U' R' U' R' F R F'",
+   "recommended": "R U R' U R U' R' U' R' F R F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-39",
+   "current": "L F' L' U' L U F U' L'",
+   "recommended": "L F' L' U' L U F U' L'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-40",
+   "current": "R' F R U R' U' F' U R",
+   "recommended": "R' F R U R' U' F' U R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-41",
+   "current": "R U R' U R U2 R' F R U R' U' F'",
+   "recommended": "R U R' U R U2 R' F R U R' U' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-42",
+   "current": "R' U' R U' R' U2 R F R U R' U' F'",
+   "recommended": "R' U' R U' R' U2 R F R U R' U' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-43",
+   "current": "F' U' L' U L F",
+   "recommended": "F' U' L' U L F",
+   "alternates": [
+    "R' U' F' U F R"
+   ],
+   "source": "J Perm",
+   "note": "Alternate keeps you on the right hand.",
+   "changed": false
+  },
+  {
+   "id": "oll-44",
+   "current": "F U R U' R' F'",
+   "recommended": "F U R U' R' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-45",
+   "current": "F R U R' U' F'",
+   "recommended": "F R U R' U' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-46",
+   "current": "R' U' R' F R F' U R",
+   "recommended": "R' U' R' F R F' U R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-47",
+   "current": "R' U' R' F R F' R' F R F' U R",
+   "recommended": "R' U' R' F R F' R' F R F' U R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-48",
+   "current": "F R U R' U' R U R' U' F'",
+   "recommended": "F R U R' U' R U R' U' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-49",
+   "current": "r U' r2 U r2 U r2 U' r",
+   "recommended": "r U' r2 U r2 U r2 U' r",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-50",
+   "current": "r' U r2 U' r2 U' r2 U r'",
+   "recommended": "r' U r2 U' r2 U' r2 U r'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-51",
+   "current": "F U R U' R' U R U' R' F'",
+   "recommended": "F U R U' R' U R U' R' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-52",
+   "current": "R U R' U R U' B U' B' R'",
+   "recommended": "R' F' U' F U' R U R' U R",
+   "alternates": [
+    "R U R' U R U' B U' B' R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "Replaces the B-move alg.",
+   "changed": true
+  },
+  {
+   "id": "oll-53",
+   "current": "l' U2 L U L' U' L U L' U l",
+   "recommended": "l' U2 L U L' U' L U L' U l",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-54",
+   "current": "r U2 R' U' R U R' U' R U' r'",
+   "recommended": "r U2 R' U' R U R' U' R U' r'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-55",
+   "current": "R' F R U R U' R2 F' R2 U' R' U R U R'",
+   "recommended": "R U2 R2 U' R U' R' U2 F R F'",
+   "alternates": [
+    "R' F R U R U' R2 F' R2 U' R' U R U R'"
+   ],
+   "source": "SpeedCubeDB",
+   "note": "11 moves instead of 15.",
+   "changed": true
+  },
+  {
+   "id": "oll-56",
+   "current": "r' U' r U' R' U R U' R' U R r' U r",
+   "recommended": "r' U' r U' R' U R U' R' U R r' U r",
+   "alternates": [
+    "r U r' U R U' R' U R U' R' r U' r'"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "oll-57",
+   "current": "R U R' U' M' U R U' r'",
+   "recommended": "R U R' U' M' U R U' r'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  }
+ ],
+ "pll": [
+  {
+   "id": "pll-aa",
+   "current": "x R' U R' D2 R U' R' D2 R2 x'",
+   "recommended": "x R' U R' D2 R U' R' D2 R2 x'",
+   "alternates": [
+    "x L2 D2 L' U' L D2 L' U L' x'"
+   ],
+   "source": "J Perm / SpeedCubeDB",
+   "note": "Do D2 as a double flick with the left ring finger.",
+   "changed": false
+  },
+  {
+   "id": "pll-ab",
+   "current": "x R2' D2 R U R' D2 R U' R x'",
+   "recommended": "x R2' D2 R U R' D2 R U' R x'",
+   "alternates": [
+    "x' L2 D2 L U L' D2 L U' L x"
+   ],
+   "source": "J Perm / SpeedCubeDB",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-e",
+   "current": "x' R U' R' D R U R' D' R U R' D R U' R' D' x",
+   "recommended": "x' R U' R' D R U R' D' R U R' D R U' R' D' x",
+   "alternates": [
+    "R2 U F' R' U R U' R' U R U' R' U R U' F U' R2"
+   ],
+   "source": "J Perm / SpeedCubeDB",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-h",
+   "current": "M2 U M2 U2 M2 U M2",
+   "recommended": "M2 U M2 U2 M2 U M2",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-ua",
+   "current": "M2 U M U2 M' U M2",
+   "recommended": "M2 U M U2 M' U M2",
+   "alternates": [
+    "R U' R U R U R U' R' U' R2"
+   ],
+   "source": "J Perm",
+   "note": "M2 as two quick ring-finger flicks; R/U version if M is slow.",
+   "changed": false
+  },
+  {
+   "id": "pll-ub",
+   "current": "M2 U' M U2 M' U' M2",
+   "recommended": "M2 U' M U2 M' U' M2",
+   "alternates": [
+    "R2 U R U R' U' R' U' R' U R'"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-z",
+   "current": "M' U M2 U M2 U M' U2 M2",
+   "recommended": "M' U M2 U M2 U M' U2 M2",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-t",
+   "current": "R U R' U' R' F R2 U' R' U' R U R' F'",
+   "recommended": "R U R' U' R' F R2 U' R' U' R U R' F'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-f",
+   "current": "R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R",
+   "recommended": "R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-ja",
+   "current": "R' U L' U2 R U' R' U2 R L",
+   "recommended": "x R2 F R F' R U2 r' U r U2 x'",
+   "alternates": [
+    "R' U L' U2 R U' R' U2 R L"
+   ],
+   "source": "J Perm",
+   "note": "J Perm's pick: no L-hand regrip.",
+   "changed": true
+  },
+  {
+   "id": "pll-jb",
+   "current": "R U R' F' R U R' U' R' F R2 U' R'",
+   "recommended": "R U R' F' R U R' U' R' F R2 U' R'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-ra",
+   "current": "R U' R' U' R U R D R' U' R D' R' U2 R'",
+   "recommended": "R U' R' U' R U R D R' U' R D' R' U2 R'",
+   "alternates": [
+    "R U R' F' R U2 R' U2 R' F R U R U2 R'"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-rb",
+   "current": "R2 F R U R U' R' F' R U2 R' U2 R",
+   "recommended": "R2 F R U R U' R' F' R U2 R' U2 R",
+   "alternates": [
+    "R' U2 R U2 R' F R U R' U' R' F' R2"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-na",
+   "current": "R U R' U R U R' F' R U R' U' R' F R2 U' R' U2 R U' R'",
+   "recommended": "R U R' U R U R' F' R U R' U' R' F R2 U' R' U2 R U' R'",
+   "alternates": [
+    "F' R U R' U' R' F R2 F U' R' U' R U F' R'"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-nb",
+   "current": "R' U R U' R' F' U' F R U R' F R' F' R U' R",
+   "recommended": "R' U R U' R' F' U' F R U R' F R' F' R U' R",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-v",
+   "current": "R' U R' U' y R' F' R2 U' R' U R' F R F",
+   "recommended": "R' U R' U' y R' F' R2 U' R' U R' F R F",
+   "alternates": [
+    "R' U R U' R' f' U' R U2 R' U' R U' R' f R"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-y",
+   "current": "F R U' R' U' R U R' F' R U R' U' R' F R F'",
+   "recommended": "F R U' R' U' R U R' F' R U R' U' R' F R F'",
+   "alternates": [
+    "F R' F R2 U' R' U' R U R' F' R U R' U' F'"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-ga",
+   "current": "R2 U R' U R' U' R U' R2 U' D R' U R D'",
+   "recommended": "R2 U R' U R' U' R U' R2 U' D R' U R D'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-gb",
+   "current": "R' U' R U D' R2 U R' U R U' R U' R2 D",
+   "recommended": "R' U' R U D' R2 U R' U R U' R U' R2 D",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-gc",
+   "current": "R2 U' R U' R U R' U R2 U D' R U' R' D",
+   "recommended": "R2 U' R U' R U R' U R2 U D' R U' R' D",
+   "alternates": [
+    "R2 F2 R U2 R U2 R' F R U R' U' R' F R2"
+   ],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  },
+  {
+   "id": "pll-gd",
+   "current": "R U R' U' D R2 U' R U' R' U R' U R2 D'",
+   "recommended": "R U R' U' D R2 U' R U' R' U R' U R2 D'",
+   "alternates": [],
+   "source": "J Perm",
+   "note": "",
+   "changed": false
+  }
+ ]
+}

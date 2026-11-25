@@ -1,0 +1,67 @@
+{
+  "expo": {
+    "name": "Layer by Layer",
+    "slug": "layer-by-layer",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "layerbylayer",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "bundleIdentifier": "com.layerbylayer.app",
+      "icon": "./assets/images/icon.png",
+      "backgroundColor": "#f5f3ee"
+    },
+    "android": {
+      "package": "com.layerbylayer.app",
+      "versionCode": 4,
+      "icon": "./assets/images/icon.png",
+      "backgroundColor": "#f5f3ee",
+      "softwareKeyboardLayoutMode": "resize",
+      "adaptiveIcon": {
+        "backgroundColor": "#1f2a37",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": { "web": true }
+      },
+      "eas": {
+        "projectId": "880b036a-02f0-40b1-904b-66950ed89807"
+      }
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "asyncRoutes": { "web": true }
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#f5f3ee",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "dark": {
+            "backgroundColor": "#12161c",
+            "image": "./assets/images/splash-icon-dark.png"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "owner": "dannielcanaryquipia"
+  }
+}
